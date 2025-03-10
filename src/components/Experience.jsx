@@ -20,14 +20,20 @@ const ExperienceCard = ({ experience }) => {
         color: "#fff",
       }}
       contentArrowStyle={{ borderRight: "7px solid  #232631" }}
-      date={experience.date}
+      date={
+        <div>
+          <span>{experience.date}</span>
+          <br />
+          <span className='text-secondary text-[14px]'>{experience.type}</span>
+        </div>
+      }
       iconStyle={{ background: experience.iconBg }}
       icon={
         <div className='flex justify-center items-center w-full h-full'>
           <img
             src={experience.icon}
             alt={experience.company_name}
-            className='w-[60%] h-[60%] object-contain'
+            className='w-[70%] h-[70%] object-contain'
           />
         </div>
       }
@@ -64,7 +70,9 @@ const Experience = () => {
           Ce que j'ai fait jusqu'à présent
         </p>
         <h2 className={`${styles.sectionHeadText} text-center`}>
+          <span role="img" aria-label="briefcase" style={{ fontSize: '0.6em', verticalAlign: 'middle' }}>💼</span>
           Mes expériences
+          <span role="img" aria-label="briefcase" style={{ fontSize: '0.6em', verticalAlign: 'middle' }}>💼</span>
         </h2>
       </motion.div>
 

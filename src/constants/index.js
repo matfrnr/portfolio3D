@@ -8,22 +8,19 @@ import {
   html,
   css,
   reactjs,
-  redux,
-  tailwind,
-  nodejs,
-  mongodb,
+  sql,
+  java,
+  c,
+  php,
+  vue,
+  angular,
   git,
-  figma,
-  docker,
-  meta,
-  starbucks,
-  tesla,
-  shopify,
-  carrent,
-  jobit,
-  tripguide,
   threejs,
   alpilink,
+  iut1Grenoble,
+  iut1Lyon,
+  master,
+  lrp,
 } from "../assets";
 
 export const navLinks = [
@@ -62,11 +59,11 @@ const services = [
 
 const technologies = [
   {
-    name: "HTML 5",
+    name: "HTML",
     icon: html,
   },
   {
-    name: "CSS 3",
+    name: "CSS",
     icon: css,
   },
   {
@@ -78,24 +75,24 @@ const technologies = [
     icon: typescript,
   },
   {
-    name: "React JS",
+    name: "Angular",
+    icon: angular,
+  },
+  {
+    name: "Vue.JS",
+    icon: vue,
+  },
+  {
+    name: "React",
     icon: reactjs,
   },
   {
-    name: "Redux Toolkit",
-    icon: redux,
+    name: "SQL",
+    icon: sql,
   },
   {
-    name: "Tailwind CSS",
-    icon: tailwind,
-  },
-  {
-    name: "Node JS",
-    icon: nodejs,
-  },
-  {
-    name: "MongoDB",
-    icon: mongodb,
+    name: "C++",
+    icon: c,
   },
   {
     name: "Three JS",
@@ -106,35 +103,70 @@ const technologies = [
     icon: git,
   },
   {
-    name: "figma",
-    icon: figma,
+    name: "PHP",
+    icon: php,
   },
   {
-    name: "docker",
-    icon: docker,
+    name: "Java",
+    icon: java,
   },
 ];
 
 const experiences = [
   {
+    title: "Tuteur en développement web",
+    type: "Job étudiant",
+    company_name: "IUT1, Grenoble",
+    icon: iut1Grenoble,
+    iconBg: "#E6DEDD",
+    date: "Septembre 2023 - Janvier 2024",
+    points: [
+      "Accompagnement d'étudiants de première année dans l'apprentissage des bases du développement web.",
+      "Aide sur des concepts clés de la programmation.",
+      "Correction de travaux pratiques et conseils.",
+      "Création d'exercices basé sur les besoins des étudiants.",
+    ],
+  },
+  {
+    title: "Développeur Drupal",
+    type: "Stage",
+    company_name: "Laboratoire Rhéologie et Procédés",
+    icon: lrp,
+    iconBg: "#E6DEDD",
+    date: "Janvier 2024 - Avril 2024",
+    points: [
+      "Refonte du site web du laboratoire sous le CMS Drupal 10",
+      "Création d'un intranet pour le personnel du laboratoire",
+      "Formation du personnel sur le CMS et création d'une documentation technique",
+      "Optimisation du contenus pour le référencement et la performance",
+      "Collaboration avec les équipes scientifiques pour la création de contenu technique",
+    ],
+  },
+  {
     title: "Développeur Angular",
+    type: "Alternance",
     company_name: "Alpilink",
     icon: alpilink,
     iconBg: "#E6DEDD",
     date: "Août 2024 - Août 2025",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Développement d'un back office pour les stations de ski sous Angular 14.",
+      "Utilisation de librarie et de composants réutilisables.",
+      "Mise en place de tests unitaires pour garantir l'integrité du code.",
+      "Collaboration avec l'équipe backend pour l'utilisation des API",
+      "Participation aux revues de code et échanges avec les autres développeurs.",
+      "Amélioration continue du code et mise à niveau vers Angular 19.",
     ],
   },
+];
+
+const parcours = [
   {
-    title: "Développeur Drupal",
-    company_name: "Laboratoire Rhéologie et Procédés",
-    icon: tesla,
+    title: "BUT Informatique",
+    company_name: "IUT Lyon1, Bourg-en-Bresse",
+    icon: iut1Lyon,
     iconBg: "#E6DEDD",
-    date: "Janvier 2024 - Avril 2024",
+    date: "2021-2022",
     points: [
       "Developing and maintaining web applications using React.js and other related technologies.",
       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
@@ -143,30 +175,25 @@ const experiences = [
     ],
   },
   {
-    title: "Web Developer",
-    company_name: "Shopify",
-    icon: shopify,
-    iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "Full stack Developer",
-    company_name: "Meta",
-    icon: meta,
+    title: "BUT MMI (Métiers du multimédia et de l'internet)",
+    company_name: "IUT1, Grenoble",
+    icon: iut1Grenoble,
     iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
+    date: "2022-2025",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
+      "Audiovisuel, Design, Communication, Développement web.",
       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
       "Implementing responsive design and ensuring cross-browser compatibility.",
       "Participating in code reviews and providing constructive feedback to other developers.",
     ],
+  },
+  {
+    title: "Master ...",
+    company_name: "",
+    icon: master,
+    iconBg: "#E6DEDD",
+    date: "2025-...",
+    points: ["À suivre..."],
   },
 ];
 
@@ -216,7 +243,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: carrent,
+    image: css,
     source_code_link: "https://github.com/",
   },
   {
@@ -237,7 +264,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: jobit,
+    image: css,
     source_code_link: "https://github.com/",
   },
   {
@@ -258,9 +285,16 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
+    image: css,
     source_code_link: "https://github.com/",
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export {
+  services,
+  technologies,
+  experiences,
+  testimonials,
+  projects,
+  parcours,
+};

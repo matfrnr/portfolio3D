@@ -85,4 +85,4 @@ const Parcours = () => {
     );
 };
 
-export default SectionWrapper(Parcours, "work");
+export default SectionWrapper(Parcours, "parcours");

@@ -6,6 +6,7 @@ import Tech from "./Tech";
 import Experience from "./Experience";
 import Works from "./Works";
 import Parcours from './Parcours';
+import BottomRightBanner from './BottomRightBanner ';
 import Contact from "./Contact";
 import CanvasLoader from "./Loader";
 
@@ -18,6 +19,7 @@ export {
   Experience,
   Works,
   Parcours,
+  BottomRightBanner,
   Contact,
   CanvasLoader,
   EarthCanvas, 

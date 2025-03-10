@@ -1,0 +1,72 @@
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import iconMail from '../assets/liens/iconMail.png';
+import iconLinkedin from '../assets/liens/iconLinkedin.png';
+import iconGithub from '../assets/liens/iconGithub.png';
+
+const BottomRightBanner = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleBanner = () => {
+        setIsOpen(!isOpen);
+    };
+
+    return (
+        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+            {/* Icônes qui apparaissent au clic - en vertical */}
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        className="flex flex-col space-y-0 mb-4"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 20 }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        <motion.button
+                            className="text-white rounded-full p-3 shadow-lg"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                        >
+                            <a href='https://github.com/matfrnr' target='blank'> <img src={iconGithub} alt="Icon 3" style={{ width: '2.6rem', backgroundColor: 'rgba(255, 255, 255, 0.8)', borderRadius: '50%', padding: '0.4rem' }} /></a>
+                        </motion.button>
+
+                        <motion.button
+                            className="text-white rounded-full p-3 shadow-lg"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                        >
+                            <a href='https://www.linkedin.com/in/matheofournier/' target='blank'> <img src={iconLinkedin} alt="Icon 1" style={{ width: '2.6rem', backgroundColor: 'rgba(255, 255, 230, 0.8)', borderRadius: '50%', padding: '0.4rem' }} /></a>
+                        </motion.button>
+
+                        <motion.button
+                            className="text-white rounded-full p-3 shadow-lg"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                        >
+                            <a href='mailto:fourniermatheo9@gmail.com' target='blank'> <img src={iconMail} alt="Icon 2" style={{ width: '2.6rem', backgroundColor: 'rgba(255, 255, 255, 0.8)', borderRadius: '50%', padding: '0.4rem' }} /></a>
+                        </motion.button>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* Bandeau principal avec icône au lieu de texte */}
+            <motion.button
+                className="bg-gray-800 hover:bg-gray-700 text-white p-4 rounded-full shadow-lg flex items-center justify-center"
+                onClick={toggleBanner}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+            >
+                <motion.span
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="text-xl"
+                >
+                    {isOpen ? '❌' : '🔗'}
+                </motion.span>
+            </motion.button>
+        </div>
+    );
+};
+
+export default BottomRightBanner;

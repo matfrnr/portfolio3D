@@ -1,5 +1,5 @@
 import React from "react";
-import Tilt from "react-tilt";
+import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
@@ -47,7 +47,7 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
       >
-      Vous me connaissez pas encore, mais je vais vous raconter un peu sur moi. Je suis un développeur passionné par la création de solutions innovantes et efficaces. Avec une solide expérience en développement web et une curiosité insatiable pour les nouvelles technologies, je m'efforce de toujours améliorer mes compétences et de rester à jour avec les dernières tendances du secteur. Mon objectif est de créer des expériences utilisateur exceptionnelles et de contribuer à des projets qui ont un impact positif.
+      Vous me connaissez pas encore, mais je vais vous raconter un peu sur moi. Depuis mon plus jeune âge, je suis passionné par le développement web et cette passion ne cesse de croître au fil du temps. Aujourd'hui, j'ai pour ambition de faire de cette passion mon métier. Je n'ai pas froid aux yeux et j'aime les défis. Le code est un outil formidable pour exprimer sa créativité, car il offre des possibilités infinies. Alors autant vous dire que c'est pas la motivation qu'il me manque 👨‍💻.
       </motion.p>
 
       <div className='mt-20 flex flex-wrap gap-10'>

@@ -59,10 +59,10 @@ const Hero = () => {
             </span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            Je suis un développeur web focalisé{" "}
+            Développeur front-end passionné{" "}
             <br className="sm:block hidden" />
-            sur le front-end. J'aime crée des projets innovants <br></br> qui
-            apporte une valeur ajoutée.
+            je conçois et développe des             <br className="sm:block hidden" />
+            applications web modernes.
           </p>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
-import { About, Contact, Experience, Hero, Navbar, Tech, Works, Parcours, StarsCanvas, BottomRightBanner } from "./components";
+import { About, Contact, Experience, Hero, Navbar, Tech, Works, Parcours, StarsCanvas, BottomRightBanner, Terminal } from "./components";
 
 const App = () => {
   return (
@@ -18,6 +18,8 @@ const App = () => {
           <Contact />
           <StarsCanvas />
         </div>
+        <Terminal />
+
         <BottomRightBanner />
       </div>
     </BrowserRouter>

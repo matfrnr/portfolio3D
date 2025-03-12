@@ -40,19 +40,19 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Développeur web",
+    title: "Développeur web front-end",
     icon: web,
   },
   {
-    title: "React Native Developer",
+    title: "Expérience utilisateur",
     icon: mobile,
   },
   {
-    title: "Backend Developer",
+    title: "Ergonomie / Référencement",
     icon: backend,
   },
   {
-    title: "Content Creator",
+    title: "Frameworks back et front",
     icon: creator,
   },
 ];
@@ -168,10 +168,10 @@ const parcours = [
     iconBg: "#E6DEDD",
     date: "2021-2022",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Formation axée sur la conception, le développement et la maintenance de solutions logicielles.",
+      "Élaboration et gestion de bases de données relationnelles.",
+      "Apprentissage des architectures logicielles et du réseaux.",
+      "Méthodologies de gestion de projet (Agile, Scrum), outils de versioning et tests unitaires.",
     ],
   },
   {
@@ -181,10 +181,10 @@ const parcours = [
     iconBg: "#E6DEDD",
     date: "2022-2025",
     points: [
-      "Audiovisuel, Design, Communication, Développement web.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Formation pluridisciplinaire alliant audiovisuel, design graphique, communication et développement web.",
+      "Spécialisation en développement web et dispositifs interactifs.",
+      "Conception d’interfaces web et mobiles modernes en respectant les standards du web.",
+      "Réalisation de projets concrets et collaboratifs comme un escape game.",
     ],
   },
   {

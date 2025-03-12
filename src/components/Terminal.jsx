@@ -5,100 +5,53 @@ const Terminal = () => {
         { type: 'output', content: 'Bienvenue sur mon Terminal Portfolio!\nTapez \'help\' pour voir les commandes disponibles.' }
     ]);
     const [inputValue, setInputValue] = useState('');
+    const [usedJokeIndices, setUsedJokeIndices] = useState([]);
     const inputRef = useRef(null);
     const terminalRef = useRef(null);
 
     // Liste des commandes disponibles
     const commands = {
         'help': 'Affiche la liste des commandes disponibles',
-        'about': 'À propos de moi',
-        'skills': 'Mes compétences',
-        'projects': 'Mes projets',
         'contact': 'Mes informations de contact',
-        'experience': 'Mon expérience professionnelle',
-        'education': 'Mon parcours éducatif',
+        'cv': 'Télécharger mon CV',
+        'portfolio': 'En savoir plus sur ce portfolio',
+        'liens': 'Les liens utiles',
         'clear': 'Efface le terminal',
-        'ls': 'Liste les fichiers disponibles',
-        'cat': 'Affiche le contenu d\'un fichier (usage: cat <filename>)',
         'date': 'Affiche la date et l\'heure actuelles',
-        'whoami': 'Qui êtes-vous?'
+        'whoami': 'Qui êtes-vous?',
+        'update': 'Date de la dernière mise à jour',
+        'amour': 'Un peu d\'amour ❤️',
+        'jeu': 'Envie de se détendre ? Lance le générateur de blagues',
+        '💣': 'Ne le faites pas.',
     };
+
+    // Blagues aléatoires pour le mini-jeu
+    const jokes = [
+        { question: "Pourquoi les développeurs ne portent-ils pas de lunettes ?", answer: "Parce qu'ils doivent voir C#." },
+        { question: "Quelle est la différence entre un bon et un mauvais développeur ?", answer: "Le bon développeur commente son code. Le très bon développeur documente son code. L'excellent développeur supprime son code." },
+        { question: "Pourquoi les programmeurs préfèrent-ils la nuit ?", answer: "Parce qu'ils peuvent être seuls avec leur code." },
+        { question: "Qu'est-ce qu'un programmeur devrait faire s'il a faim ?", answer: "Il n'a qu'à se nourrir à la boucle for." },
+        { question: "Comment un programmeur fait-il pour ouvrir sa maison quand il a oublié ses clés ?", answer: "Il jette un coup d'œil par la fenêtre pour voir s'il y a une exception." },
+        { question: "Quelle est la différence entre HTML et CSS ?", answer: "HTML te permet de mettre un pistolet sur la tempe de quelqu'un, CSS te permet de le rendre joli." },
+        { question: "Pourquoi les programmeurs confondent-ils Halloween et Noël ?", answer: "Parce que Oct 31 = Dec 25." }
+    ];
 
     // Contenu des commandes
     const commandContents = {
-        'about': `
-Je suis un développeur web passionné par la création d'expériences utilisateur uniques et interactives.
-J'aime résoudre des problèmes complexes et créer des solutions élégantes.`,
-
-        'skills': `
-LANGAGES:
-- HTML5, CSS3, JavaScript (ES6+)
-- PHP, Python, SQL
-
-FRAMEWORKS & BIBLIOTHÈQUES:
-- React, Vue.js, Node.js
-- Bootstrap, Tailwind CSS
-
-OUTILS:
-- Git, Docker, VS Code
-- Figma, Adobe XD`,
-
-        'projects': `
-1. E-COMMERCE RESPONSIVE
-   Un site e-commerce complet avec panier et paiement
-   Tech: React, Node.js, MongoDB
-
-2. APPLICATION MÉTÉO
-   Application météo en temps réel avec géolocalisation
-   Tech: JavaScript, API OpenWeather
-
-3. PORTFOLIO TERMINAL
-   Ce terminal interactif que vous utilisez actuellement
-   Tech: React, Tailwind CSS`,
-
         'contact': `
 EMAIL: exemple@monportfolio.com
 LINKEDIN: linkedin.com/in/monprofil
 GITHUB: github.com/monprofil
 TWITTER: @monprofil`,
 
-        'experience': `
-DÉVELOPPEUR FRONTEND | Entreprise XYZ | 2022-Présent
-- Développement d'interfaces utilisateur réactives
-- Optimisation des performances web
-- Collaboration avec des designers UX/UI
 
-DÉVELOPPEUR WEB | Startup ABC | 2020-2022
-- Création de sites web complets
-- Maintenance et mise à jour de plateformes existantes
-- Intégration de systèmes de paiement`,
-
-        'education': `
-MASTER EN DÉVELOPPEMENT WEB | Université XYZ | 2018-2020
-- Spécialisation en technologies frontend
-- Projet de fin d'études: Plateforme e-learning
-
-LICENCE INFORMATIQUE | Université ABC | 2015-2018
-- Fondamentaux de la programmation
-- Bases de données et algorithmes`,
-
-        'ls': `
-about.txt
-skills.md
-projects.json
-contact.txt
-resume.pdf
-photo.jpg`,
+        'portfolio': `Ce portfolio a été realisé en utilisant React et Tailwind CSS. Il intégre le framework Three.js pour la partie 3D. Il est en constante évolution et mis à jour régulièrement.`,
 
         'whoami': `visiteur`,
+        'update': `Dernière mise à jour le 12/03/2025`,
 
-        'cat': {
-            'about.txt': `Je suis un développeur web passionné, spécialisé en React et technologies front-end modernes.`,
-            'skills.md': `# Compétences\n- React/Next.js\n- Tailwind CSS\n- TypeScript\n- Node.js\n- Git`,
-            'projects.json': `{\n  "projet1": {\n    "nom": "E-commerce",\n    "techno": ["React", "Node.js", "MongoDB"]\n  },\n  "projet2": {\n    "nom": "Terminal Portfolio",\n    "techno": ["React", "Tailwind"]\n  }\n}`,
-            'contact.txt': `Email: exemple@monportfolio.com\nTel: +33 6 12 34 56 78`,
-            'default': `Fichier non trouvé. Utilisez 'ls' pour voir la liste des fichiers disponibles.`
-        }
+        'amour': `Ce portfolio a été confectionné et realisé avec amour ❤️ Alors prenez soin de lui !`,
+        '💣': `La curiosité est un vilain défaut.`
     };
 
     // Fonction pour faire défiler automatiquement vers le bas
@@ -162,6 +115,11 @@ photo.jpg`,
             return;
         }
 
+        if (mainCmd === 'jeu') {
+            handleJokeGame();
+            return;
+        }
+
         if (mainCmd === 'cat' && cmdParts.length > 1) {
             const filename = cmdParts[1];
             const fileContent = commandContents['cat'][filename] || commandContents['cat']['default'];
@@ -184,6 +142,39 @@ photo.jpg`,
             }
             addToHistory('output', helpText);
         }
+    };
+
+    // Gestionnaire du mini-jeu de blagues
+    const handleJokeGame = () => {
+        // Vérifier si toutes les blagues ont été utilisées
+        if (usedJokeIndices.length >= jokes.length) {
+            // Réinitialiser la liste des blagues utilisées
+            setUsedJokeIndices([]);
+            addToHistory('output', '🔄 Toutes les blagues ont été vues ! Nous recommençons avec un nouveau cycle. 🔄');
+        }
+
+        // Trouver un index de blague qui n'a pas encore été utilisé
+        let randomIndex;
+        do {
+            randomIndex = Math.floor(Math.random() * jokes.length);
+        } while (usedJokeIndices.includes(randomIndex));
+
+        // Ajouter cet index à la liste des blagues utilisées
+        setUsedJokeIndices([...usedJokeIndices, randomIndex]);
+
+        // Obtenir la blague à cet index
+        const randomJoke = jokes[randomIndex];
+
+        // Affiche d'abord la question
+        addToHistory('output', '🎮 GÉNÉRATEUR DE BLAGUES 🎮\n\n' + randomJoke.question);
+
+        // Puis ajoute la réponse après un court délai pour créer un effet
+        setTimeout(() => {
+            addToHistory('output', '↳ ' + randomJoke.answer);
+
+            // Indique combien de blagues restantes
+           
+        }, 1500);
     };
 
     // Ajouter un élément à l'historique

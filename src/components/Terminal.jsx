@@ -130,7 +130,7 @@ const Terminal = () => {
         }
 
         if (mainCmd === 'help') {
-            let helpText = 'Commandes disponibles:\n\n';
+            let helpText = 'Commandes disponibles :\n\n';
             for (const [cmd, desc] of Object.entries(commands)) {
                 helpText += `${cmd.padEnd(10)} - ${desc}\n`;
             }

@@ -19,7 +19,9 @@ const App = () => {
           <Contact />
           <StarsCanvas />
         </div>
-        <Terminal />
+        <div className='lg:px-0 px-4'>
+          <Terminal />
+        </div>
         <BottomRightBanner />
       </div>
     </BrowserRouter>

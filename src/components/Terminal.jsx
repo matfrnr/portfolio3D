@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 
 const Terminal = () => {
     const [history, setHistory] = useState([
-        { type: 'output', content: 'Bienvenue sur mon Terminal Portfolio!\nTapez \'help\' pour voir les commandes disponibles.' }
+        { type: 'output', content: 'Bienvenue sur mon Terminal Portfolio !\nTapez \'help\' pour voir les commandes disponibles.' }
     ]);
     const [inputValue, setInputValue] = useState('');
     const [usedJokeIndices, setUsedJokeIndices] = useState([]);
@@ -11,16 +11,16 @@ const Terminal = () => {
 
     const commands = {
         'help': 'Affiche la liste des commandes disponibles',
-        'contact': 'Mes informations de contact',
+        'clear': 'Efface le terminal',
+        'contact': 'Me contacter',
         'cv': 'Télécharger mon CV',
         'portfolio': 'En savoir plus sur ce portfolio',
         'liens': 'Les liens utiles',
-        'clear': 'Efface le terminal',
         'date': 'Affiche la date et l\'heure actuelles',
-        'whoami': 'Qui êtes-vous?',
+        'whoami': 'Qui êtes-vous ?',
         'update': 'Date de la dernière mise à jour',
         'amour': 'Un peu d\'amour ❤️',
-        'jeu': 'Envie de se détendre ? Lance le générateur de blagues',
+        'jeu': 'Envie de se détendre ? Lancer le générateur de blagues',
         '💣': 'Ne le faites pas.',
     };
 
@@ -34,20 +34,37 @@ const Terminal = () => {
         { question: "Pourquoi les programmeurs confondent-ils Halloween et Noël ?", answer: "Parce que Oct 31 = Dec 25." }
     ];
 
+    // Modification ici pour rendre les liens cliquables
+    const contactContent = (
+        <div>
+            <p className='mb-2'>Vous voulez me contacter ? </p>
+            <div className='mb-2'>Voici mon mail : <a href="mailto:fourniermatheo9@gmail.com" className="text-blue-400 underline hover:text-blue-300">fourniermatheo9@gmail.com</a></div>
+            <p>Je me ferai un plaisir de vous répondre, alors ne soyez pas timide 😉</p>
+        </div>
+    );
+
+    const liensContent = (
+        <div>
+            <div className='mb-2'>LINKEDIN: <a href="https://linkedin.com/in/matheofournier/" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-300">linkedin.com/in/matheofournier/</a></div>
+            <div>GITHUB: <a href="https://github.com/matfrnr" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-300">github.com/matfrnr</a></div>
+        </div>
+    );
+
+    const cvContent = (
+        <div>
+            <div className='mb-2'>Envie d'en apprendre plus sur moi ? <a href="/src/assets/cv.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-300">Télécharger mon cv</a></div>
+        </div>
+    );
+
     const commandContents = {
-        'contact': `
-EMAIL: exemple@monportfolio.com
-LINKEDIN: linkedin.com/in/monprofil
-GITHUB: github.com/monprofil
-TWITTER: @monprofil`,
-
+        'contact': contactContent,
+        'liens': liensContent,
         'portfolio': `Ce portfolio a été realisé en utilisant React et Tailwind CSS. Il intégre le framework Three.js pour la partie 3D. Il est en constante évolution et mis à jour régulièrement.`,
-
-        'whoami': `visiteur`,
-        'update': `Dernière mise à jour le 12/03/2025`,
-
+        'whoami': `Ma futur entreprise ? Mes futurs collaborateurs ? Ma future aventure ? A vous de le décider !`,
+        'update': `Dernière mise à jour : 13/03/2025`,
         'amour': `Ce portfolio a été confectionné et realisé avec amour ❤️ Alors prenez soin de lui !`,
-        '💣': `La curiosité est un vilain défaut.`
+        '💣': `La curiosité est un vilain défaut.`,
+        'cv': cvContent
     };
 
     useEffect(() => {
@@ -103,16 +120,13 @@ TWITTER: @monprofil`,
 
         if (mainCmd === 'cat' && cmdParts.length > 1) {
             const filename = cmdParts[1];
-            const fileContent = commandContents['cat'][filename] || commandContents['cat']['default'];
+            const fileContent = commandContents['cat'] && commandContents['cat'][filename] ?
+                commandContents['cat'][filename] :
+                (commandContents['cat'] && commandContents['cat']['default'] ?
+                    commandContents['cat']['default'] :
+                    "Fichier non trouvé");
             addToHistory('output', fileContent);
             return;
-        }
-
-        if (commands.hasOwnProperty(mainCmd)) {
-            const content = commandContents[mainCmd];
-            addToHistory('output', content);
-        } else {
-            addToHistory('error', `Commande non reconnue: ${mainCmd}. Tapez 'help' pour voir les commandes disponibles.`);
         }
 
         if (mainCmd === 'help') {
@@ -121,6 +135,23 @@ TWITTER: @monprofil`,
                 helpText += `${cmd.padEnd(10)} - ${desc}\n`;
             }
             addToHistory('output', helpText);
+            return;
+        }
+
+        if (commands.hasOwnProperty(mainCmd)) {
+            const content = commandContents[mainCmd];
+            if (content) {
+                // Pour les contenus JSX comme les liens cliquables
+                if (React.isValidElement(content)) {
+                    addToHistory('jsx', content);
+                } else {
+                    addToHistory('output', content);
+                }
+            } else {
+                addToHistory('output', `Commande exécutée: ${mainCmd}`);
+            }
+        } else {
+            addToHistory('error', `Commande non reconnue: ${mainCmd}. Tapez 'help' pour voir les commandes disponibles.`);
         }
     };
 
@@ -170,6 +201,10 @@ TWITTER: @monprofil`,
                             <div className="flex">
                                 <span className="text-green-400 mr-2">visiteur@portfolio:~$</span>
                                 <span className="text-white">{item.content}</span>
+                            </div>
+                        ) : item.type === 'jsx' ? (
+                            <div className="ml-0 text-green-300">
+                                {item.content}
                             </div>
                         ) : (
                             <div className={`ml-0 whitespace-pre-wrap ${item.type === 'output' ? 'text-green-300' : ''}`}>

@@ -19,7 +19,6 @@ const App = () => {
           <Contact />
           <StarsCanvas />
         </div>
-        <Terminal />
         <BottomRightBanner />
       </div>
     </BrowserRouter>

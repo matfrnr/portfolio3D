@@ -6,8 +6,8 @@ import {
   javascript,
   typescript,
   html,
-  css,
   reactjs,
+  css,
   sql,
   java,
   c,
@@ -226,20 +226,20 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "Escape Game",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "Un escape game en ligne ou chaque seconde vous fait perdre de l'argent. Résolvez des énigmes, trouvez des indices et éviter le pire.",
     tags: [
       {
         name: "react",
         color: "blue-text-gradient",
       },
       {
-        name: "mongodb",
+        name: "mariadb",
         color: "green-text-gradient",
       },
       {
-        name: "tailwind",
+        name: "websockets",
         color: "pink-text-gradient",
       },
     ],
@@ -247,37 +247,58 @@ const projects = [
     source_code_link: "https://github.com/",
   },
   {
-    name: "Job IT",
+    name: "DeliveCrous",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "Une application de livraison de repas pour les étudiants ! Avec la possibilité de consulter en détails les plats, les ajouter en favoris et suivre la commande.",
     tags: [
       {
-        name: "react",
+        name: "reactNative",
         color: "blue-text-gradient",
       },
       {
-        name: "restapi",
+        name: "typescript",
         color: "green-text-gradient",
       },
       {
-        name: "scss",
+        name: "api",
         color: "pink-text-gradient",
       },
     ],
     image: css,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/matfrnr/DeliveCROUS-",
   },
   {
-    name: "Trip Guide",
+    name: "RecipeApp",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "Une application de recette de cuisine communautaire et personnalisable ! Créer vos propres recettes, confectionner automatiquent une liste de courses et demander à une IA des recettes uniques.",
     tags: [
       {
-        name: "nextjs",
+        name: "java",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "api",
+        color: "green-text-gradient",
+      },
+      {
+        name: "gradle",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: css,
+    source_code_link: "https://github.com/matfrnr/RecipeApp",
+  },
+  {
+    name: "Système solaire 3D",
+    description:
+      "Découvrez une animation 3D du système solaire, naviguer entre les planètes, apprenez des informations sur chacune elles. Une comparaison de taille est également disponible.",
+    tags: [
+      {
+        name: "js",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Babylon.js",
         color: "green-text-gradient",
       },
       {
@@ -286,7 +307,49 @@ const projects = [
       },
     ],
     image: css,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/matfrnr/System_solar_3D",
+  },
+  {
+    name: "The Resto",
+    description:
+      "Site vitrine de restaurant moderne et épuré. Découvrez les plats du chef, les évenements à venir et réserver en ligne. Responsive et optimisé pour le référencement.",
+    tags: [
+      {
+        name: "html",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "scss",
+        color: "green-text-gradient",
+      },
+      {
+        name: "responsive",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: css,
+    source_code_link: "https://github.com/matfrnr/TheResto",
+  },
+  {
+    name: "Mini Jeu",
+    description:
+      "Envie de vous amuser ? Essayez ce site regroupant 6 mini-jeu unique et varié. De quoi passer un bon moment seul ou entre amis ! ",
+    tags: [
+      {
+        name: "html",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "css",
+        color: "green-text-gradient",
+      },
+      {
+        name: "js",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: css,
+    source_code_link: "https://github.com/matfrnr/MiniJeu",
   },
 ];
 

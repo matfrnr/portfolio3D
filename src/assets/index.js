@@ -8,6 +8,12 @@ import close from "./close.svg";
 import github from "./github.png";
 
 import css from "./tech/css.png";
+import resto1 from "./projets/resto1.png";
+import morpion from "./projets/morpion.jpg";
+import delive from "./projets/delive.jpg";
+import escape from "./projets/escape.webp";
+import recipe from "./projets/recipe.jpeg";
+import planete3D from "./projets/planete3D.png";
 import git from "./tech/git.png";
 import html from "./tech/html.png";
 import javascript from "./tech/javascript.png";
@@ -37,6 +43,12 @@ export {
   menu,
   close,
   css,
+  resto1,
+  morpion,
+  delive,
+  escape,
+  recipe,
+  planete3D,
   git,
   html,
   javascript,

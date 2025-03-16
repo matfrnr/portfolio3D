@@ -8,6 +8,12 @@ import {
   html,
   reactjs,
   css,
+  resto1,
+  morpion,
+  delive,
+  escape,
+  recipe,
+  planete3D,
   sql,
   java,
   c,
@@ -243,8 +249,8 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: css,
-    source_code_link: "https://github.com/",
+    image: escape,
+    source_code_link: "https://github.com/matfrnr/EscapeGame",
   },
   {
     name: "DeliveCrous",
@@ -264,7 +270,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: css,
+    image: delive,
     source_code_link: "https://github.com/matfrnr/DeliveCROUS-",
   },
   {
@@ -285,7 +291,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: css,
+    image: recipe,
     source_code_link: "https://github.com/matfrnr/RecipeApp",
   },
   {
@@ -306,7 +312,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: css,
+    image: planete3D,
     source_code_link: "https://github.com/matfrnr/System_solar_3D",
   },
   {
@@ -327,7 +333,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: css,
+    image: resto1,
     source_code_link: "https://github.com/matfrnr/TheResto",
   },
   {
@@ -348,7 +354,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: css,
+    image: morpion,
     source_code_link: "https://github.com/matfrnr/MiniJeu",
   },
 ];

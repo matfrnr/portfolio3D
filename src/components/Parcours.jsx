@@ -4,6 +4,7 @@ import {
     VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import { motion } from "framer-motion";
+import { vaisseau } from "../assets";
 
 import "react-vertical-timeline-component/style.min.css";
 
@@ -61,6 +62,8 @@ const Parcours = () => {
     return (
         <>
             <motion.div variants={textVariant()}>
+                <img src={vaisseau} alt='logo' className='w-12 h-12 object-contain' />
+
                 <p className={`${styles.sectionSubText} text-center`}>
                     Ce que j'ai étudié jusqu'à présent
                 </p>

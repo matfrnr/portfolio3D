@@ -1,0 +1,42 @@
+body {
+  cursor: none;
+  scroll-behavior: smooth;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body.loaded {
+  cursor: none;
+}
+
+.spaceship {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  transition: transform 0.1s;
+  pointer-events: none;
+  display: none; /* Masque le vaisseau au début */
+}
+
+body.loaded .spaceship {
+  display: block; /* Affiche le vaisseau après le chargement */
+}
+
+.smoke {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  animation: fadeOut 1s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: scale(2);
+  }
+}

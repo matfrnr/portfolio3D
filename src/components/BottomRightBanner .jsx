@@ -28,7 +28,7 @@ const BottomRightBanner = () => {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                         >
-                            <a href='https://github.com/matfrnr' target='blank'> <img src={iconGithub} alt="Icon 3" style={{ width: '2.6rem', backgroundColor: 'rgba(255, 255, 255, 0.8)', borderRadius: '50%', padding: '0.4rem' }} /></a>
+                            <a href='https://github.com/matfrnr' target='blank'> <img src={iconGithub} alt="Icon 3" style={{ width: '2.2rem', borderRadius: '50%' }} /></a>
                         </motion.button>
 
                         <motion.button
@@ -36,7 +36,7 @@ const BottomRightBanner = () => {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                         >
-                            <a href='https://www.linkedin.com/in/matheofournier/' target='blank'> <img src={iconLinkedin} alt="Icon 1" style={{ width: '2.6rem', backgroundColor: 'rgba(255, 255, 230, 0.8)', borderRadius: '50%', padding: '0.4rem' }} /></a>
+                            <a href='https://www.linkedin.com/in/matheofournier/' target='blank'> <img src={iconLinkedin} alt="Icon 1" style={{ width: '2.2rem', borderRadius: '50%' }} /></a>
                         </motion.button>
 
                         <motion.button
@@ -44,7 +44,7 @@ const BottomRightBanner = () => {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                         >
-                            <a href='mailto:fourniermatheo9@gmail.com' target='blank'> <img src={iconMail} alt="Icon 2" style={{ width: '2.6rem', backgroundColor: 'rgba(255, 255, 255, 0.8)', borderRadius: '50%', padding: '0.4rem' }} /></a>
+                            <a href='mailto:fourniermatheo9@gmail.com' target='blank'> <img src={iconMail} alt="Icon 2" style={{ width: '2.2rem', borderRadius: '50%' }} /></a>
                         </motion.button>
                     </motion.div>
                 )}

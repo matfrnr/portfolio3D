@@ -52,11 +52,12 @@ const ProjectCard = ({
           <p className='mt-2 text-secondary text-[14px]'>{description}</p>
         </div>
 
-        <div className='mt-4 flex flex-wrap gap-2'>
+        <div className='mt-4 flex flex-wrap gap-2 user'>
           {tags.map((tag) => (
             <p
               key={`${name}-${tag.name}`}
               className={`text-[14px] ${tag.color}`}
+              style={{ userSelect: 'none' }}
             >
               #{tag.name}
             </p>

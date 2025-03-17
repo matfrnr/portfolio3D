@@ -1,10 +1,29 @@
 body {
   cursor: none;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+
+* {
+  cursor: none !important;
+}
+
+::selection {
+  background-color: #915eff;
+  color: white;
+}
+
+::-moz-selection {
+  background-color: #915eff;
+  color: white;
+}
+
+img {
+  user-select: none;
 }
 
 body.loaded {
@@ -18,6 +37,12 @@ body.loaded {
   transition: transform 0.1s;
   pointer-events: none;
   display: none; /* Masque le vaisseau au début */
+  top: 50%; /* Positionne le vaisseau au centre verticalement */
+  left: 50%; /* Positionne le vaisseau au centre horizontalement */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Centre le vaisseau par rapport à son propre centre */
 }
 
 body.loaded .spaceship {

@@ -101,6 +101,9 @@ const Terminal = () => {
         const mainCmd = cmdParts[0];
 
         if (mainCmd === 'clear') {
+            // Faire défiler vers le haut de la page avant de vider le terminal
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
             setHistory([
                 { type: 'output', content: 'Terminal effacé.' }
             ]);

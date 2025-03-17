@@ -61,8 +61,8 @@ const ParcoursCard = ({ experience }) => {
 const Parcours = () => {
     return (
         <>
-            <motion.div variants={textVariant()}>
-                <img src={vaisseau} alt='logo' className='w-12 h-12 object-contain' />
+            <motion.div variants={textVariant()} className="flex flex-col items-center">
+                <img src={vaisseau} alt='logo' className='w-14 h-14 object-contain mb-5' />
 
                 <p className={`${styles.sectionSubText} text-center`}>
                     Ce que j'ai étudié jusqu'à présent

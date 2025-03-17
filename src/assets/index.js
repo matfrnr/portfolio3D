@@ -7,6 +7,7 @@ import menu from "./menu.svg";
 import close from "./close.svg";
 import github from "./github.png";
 import vaisseau from "./vaisseau.png";
+import vaisseau1 from "./vaisseau1.png";
 import css from "./tech/css.png";
 import resto1 from "./projets/resto1.png";
 import morpion from "./projets/morpion.jpg";
@@ -36,6 +37,7 @@ import master from "./company/master.png";
 export {
   illustrationDev,
   vaisseau,
+  vaisseau1,
   backend,
   creator,
   mobile,

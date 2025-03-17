@@ -4,6 +4,7 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import { motion } from "framer-motion";
+import { vaisseau1 } from "../assets";
 
 import "react-vertical-timeline-component/style.min.css";
 
@@ -65,7 +66,8 @@ const ExperienceCard = ({ experience }) => {
 const Experience = () => {
   return (
     <>
-      <motion.div variants={textVariant()}>
+      <motion.div variants={textVariant()} className="flex flex-col items-center">
+        <img src={vaisseau1} alt='logo' className='w-14 h-14 object-contain mb-5' />
         <p className={`${styles.sectionSubText} text-center`}>
           Ce que j'ai fait jusqu'à présent
         </p>

@@ -9,26 +9,27 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emailjs/browser": "^3.10.0",
-    "@react-three/drei": "^9.56.24",
-    "@react-three/fiber": "^8.11.1",
-    "framer-motion": "^9.0.7",
-    "lucide-react": "^0.479.0",
-    "maath": "^0.5.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "@babel/traverse": "^7.26.10",
+    "@emailjs/browser": "^4.4.1",
+    "@react-three/drei": "^10.0.4",
+    "@react-three/fiber": "^9.1.0",
+    "framer-motion": "^12.5.0",
+    "lucide-react": "^0.483.0",
+    "maath": "^0.10.8",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-parallax-tilt": "^1.7.286",
-    "react-router-dom": "^6.8.1",
+    "react-router-dom": "^7.3.0",
     "react-vertical-timeline-component": "^3.6.0",
-    "three": "^0.149.0"
+    "three": "^0.174.0"
   },
   "devDependencies": {
-    "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
-    "@vitejs/plugin-react": "^3.1.0",
-    "autoprefixer": "^10.4.13",
-    "postcss": "^8.4.21",
-    "tailwindcss": "^3.2.6",
-    "vite": "^4.1.0"
+    "@types/react": "^19.0.11",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.14",
+    "vite": "^6.2.2"
   }
 }

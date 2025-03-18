@@ -1,2 +1,2 @@
 User-agent: *
-Disallow: /src/assets/cv.pdf
+Disallow: /portfolio3D/cv.pdf

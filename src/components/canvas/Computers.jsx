@@ -21,8 +21,8 @@ const Computers = ({ isMobile }) => {
       <pointLight intensity={1} />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.7 : 0.75}
-        position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
+        scale={isMobile ? 0.6 : 0.75} // Ajustez l'échelle pour mobile
+        position={isMobile ? [0, -3, -2.5] : [0, -3.25, -1.5]} // Ajustez la position pour mobile
         rotation={[-0.01, -0.2, -0.1]}
         castShadow
         receiveShadow
@@ -60,7 +60,7 @@ const ComputersCanvas = () => {
       frameloop='demand'
       shadows
       dpr={[1, 2]}
-      camera={{ position: [20, 3, 5], fov: 25 }}
+      camera={{ position: isMobile ? [10, 3, 5] : [20, 3, 5], fov: 25 }} // Ajustez la position de la caméra pour mobile
       gl={{ preserveDrawingBuffer: true }}
     >
       <Suspense fallback={<CanvasLoader />}>

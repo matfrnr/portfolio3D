@@ -40,14 +40,14 @@ const About = () => {
     <>
       <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Présentation 👽 </h2>
+        <h2 className={styles.sectionHeadText}>Présentation👽 </h2>
       </motion.div>
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
         className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
       >
-      Vous ne me connaissez pas encore, mais je vais vous raconter un peu sur moi. Depuis mon plus jeune âge, je suis passionné par le développement web et cette passion ne cesse de croître au fil du temps. Aujourd'hui, j'ai pour ambition de faire de cette passion mon métier. Je n'ai pas froid aux yeux et j'aime les défis. Le code est un outil formidable pour exprimer sa créativité, car il offre des possibilités infinies. Alors autant vous dire que ce n'est pas la motivation qu'il me manque 👨‍💻.
+        Vous ne me connaissez pas encore, alors laissez-moi vous en dire un peu plus sur mon histoire. Depuis mon plus jeune âge, je suis passionné par le développement web et cette passion ne cesse de croître au fil du temps. Aujourd'hui, j'ai pour ambition de faire de cette passion mon métier. Je n'ai pas froid aux yeux et j'aime les défis. Le code est un outil formidable pour exprimer sa créativité, car il offre des possibilités infinies. Alors autant vous dire que ce n'est pas la motivation qu'il me manque👨‍💻
       </motion.p>
 
       <div className='mt-20 flex flex-wrap gap-10'>

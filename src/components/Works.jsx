@@ -81,7 +81,7 @@ const Works = () => {
           variants={fadeIn("", "", 0.1, 1)}
           className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'
         >
-          Découvrez une sélection de mes réalisations témoignant de mes compétences et de mon expérience.  Vous trouverez pour chaque réalisation une brève description, la technologie utilisé et un lien vers le code source sur GitHub. En espérant que cela vous plaise😉.
+          Découvrez une sélection de mes réalisations témoignant de mes compétences et de mon expérience. Vous trouverez pour chaque réalisation une brève description, la technologie utilisée et un lien vers le code source sur GitHub. En espérant que cela vous plaise😉
         </motion.p>
       </div>
 

@@ -20,7 +20,7 @@ const Terminal = () => {
         'whoami': 'Qui êtes-vous ?',
         'update': 'Date de la dernière mise à jour',
         'amour': 'Un peu d\'amour ❤️',
-        'jeu': 'Envie de se détendre ? Lancer le générateur de blagues',
+        'jeu': 'Envie de se détendre ?',
         '💣': 'Ne le faites pas.',
     };
 
@@ -45,8 +45,8 @@ const Terminal = () => {
 
     const liensContent = (
         <div>
-            <div className='mb-2'>LINKEDIN: <a href="https://linkedin.com/in/matheofournier/" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-300">linkedin.com/in/matheofournier/</a></div>
-            <div>GITHUB: <a href="https://github.com/matfrnr" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-300">github.com/matfrnr</a></div>
+            <div className='mb-2'>LINKEDIN : <a href="https://linkedin.com/in/matheofournier/" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-300">linkedin.com/in/matheofournier/</a></div>
+            <div>GITHUB : <a href="https://github.com/matfrnr" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-300">github.com/matfrnr</a></div>
         </div>
     );
 
@@ -59,10 +59,10 @@ const Terminal = () => {
     const commandContents = {
         'contact': contactContent,
         'liens': liensContent,
-        'portfolio': `Ce portfolio a été realisé en utilisant React et Tailwind CSS. Il intégre le framework Three.js pour la partie 3D. Il est en constante évolution et mis à jour régulièrement.`,
-        'whoami': `Ma futur entreprise ? Mes futurs collaborateurs ? Ma future aventure ? A vous de le décider !`,
+        'portfolio': `Ce portfolio a été réalisé en utilisant React et Tailwind. Il intègre le framework Three.js pour la partie 3D. Il est en constante évolution et mis à jour régulièrement.`,
+        'whoami': `Ma future entreprise ? Mes futurs collaborateurs ? Ma future aventure ? À vous de le décider !`,
         'update': `Dernière mise à jour : 13/03/2025`,
-        'amour': `Ce portfolio a été confectionné et realisé avec amour ❤️ Alors prenez soin de lui !`,
+        'amour': `Ce portfolio a été confectionné et réalisé avec amour ❤️ Alors prenez soin de lui !`,
         '💣': `La curiosité est un vilain défaut.`,
         'cv': cvContent
     };

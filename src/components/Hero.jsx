@@ -66,9 +66,9 @@ const Hero = () => {
             </span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            Développeur front-end passionné{" "}
+            Je suis un développeur front passionné{" "}
             <br className="sm:block hidden" />
-            je conçois et développe des             <br className="sm:block hidden" />
+            qui conçois et développe des             <br className="sm:block hidden" />
             applications web modernes.
           </p>
         </div>

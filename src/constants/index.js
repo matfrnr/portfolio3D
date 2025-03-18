@@ -46,7 +46,7 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Développeur web front-end",
+    title: "Développeur front-end",
     icon: web,
   },
   {
@@ -130,7 +130,7 @@ const experiences = [
       "Accompagnement d'étudiants de première année dans l'apprentissage des bases du développement web.",
       "Aide sur des concepts clés de la programmation.",
       "Correction de travaux pratiques et conseils.",
-      "Création d'exercices basé sur les besoins des étudiants.",
+      "Création d'exercices basés sur les besoins des étudiants.",
     ],
   },
   {
@@ -141,11 +141,11 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "Janvier 2024 - Avril 2024",
     points: [
-      "Refonte du site web du laboratoire sous le CMS Drupal 10",
-      "Création d'un intranet pour le personnel du laboratoire",
-      "Formation du personnel sur le CMS et création d'une documentation technique",
-      "Optimisation du contenus pour le référencement et la performance",
-      "Collaboration avec les équipes scientifiques pour la création de contenu technique",
+      "Refonte du site web du laboratoire sous le CMS Drupal 10.",
+      "Création d'un intranet pour le personnel du laboratoire.",
+      "Formation du personnel sur le CMS et création d'une documentation technique.",
+      "Optimisation des contenus pour le référencement et la performance.",
+      "Collaboration avec les équipes scientifiques pour la partie technique.",
     ],
   },
   {
@@ -156,10 +156,10 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "Août 2024 - Août 2025",
     points: [
-      "Développement d'un back office pour les stations de ski sous Angular 14.",
-      "Utilisation de librarie et de composants réutilisables.",
-      "Mise en place de tests unitaires pour garantir l'integrité du code.",
-      "Collaboration avec l'équipe backend pour l'utilisation des API",
+      "Développement d'un back-office pour les stations de ski sous Angular 14.",
+      "Utilisation de librairies et de composants réutilisables.",
+      "Mise en place de tests unitaires pour garantir l'intégrité du code.",
+      "Collaboration avec l'équipe backend pour l'utilisation des API.",
       "Participation aux revues de code et échanges avec les autres développeurs.",
       "Amélioration continue du code et mise à niveau vers Angular 19.",
     ],
@@ -176,7 +176,7 @@ const parcours = [
     points: [
       "Formation axée sur la conception, le développement et la maintenance de solutions logicielles.",
       "Élaboration et gestion de bases de données relationnelles.",
-      "Apprentissage des architectures logicielles et du réseaux.",
+      "Apprentissage des architectures logicielles et réseaux.",
       "Méthodologies de gestion de projet (Agile, Scrum), outils de versioning et tests unitaires.",
     ],
   },
@@ -234,7 +234,7 @@ const projects = [
   {
     name: "Escape Game",
     description:
-      "Un escape game en ligne ou chaque seconde vous fait perdre de l'argent. Résolvez des énigmes, trouvez des indices et éviter le pire.",
+      "Un escape game en ligne ou chaque seconde vous fait perdre de l'argent. Résolvez des énigmes, trouvez des indices et évitez le pire.",
     tags: [
       {
         name: "react",
@@ -255,7 +255,7 @@ const projects = [
   {
     name: "DeliveCrous",
     description:
-      "Une application de livraison de repas pour les étudiants ! Avec la possibilité de consulter en détails les plats, les ajouter en favoris et suivre la commande.",
+      "Une application de livraison de repas pour les étudiants ! Avec la possibilité de consulter les plats, de les ajouter en ❤️ et de suivre la commande.",
     tags: [
       {
         name: "reactNative",
@@ -276,7 +276,7 @@ const projects = [
   {
     name: "RecipeApp",
     description:
-      "Une application de recette de cuisine communautaire et personnalisable ! Créer vos propres recettes, confectionner automatiquent une liste de courses et demander à une IA des recettes uniques.",
+      "Une application de recettes de cuisine communautaire et personnalisable ! Créez vos propres recettes, générez automatiquement une liste de courses et demandez à une IA des recettes uniques.",
     tags: [
       {
         name: "java",
@@ -297,7 +297,7 @@ const projects = [
   {
     name: "Système solaire 3D",
     description:
-      "Découvrez une animation 3D du système solaire, naviguer entre les planètes, apprenez des informations sur chacune elles. Une comparaison de taille est également disponible.",
+      "Découvrez une animation 3D du système solaire, naviguez entre les planètes, apprenez des informations sur chacune d'elles. Une comparaison de taille est également disponible.",
     tags: [
       {
         name: "js",
@@ -318,7 +318,7 @@ const projects = [
   {
     name: "The Resto",
     description:
-      "Site vitrine de restaurant moderne et épuré. Découvrez les plats du chef, les évenements à venir et réserver en ligne. Responsive et optimisé pour le référencement.",
+      "Site vitrine de restaurant moderne et épuré. Découvrez les plats du chef, les événements à venir et réservez en ligne. Responsive et optimisé pour le référencement.",
     tags: [
       {
         name: "html",
@@ -337,9 +337,9 @@ const projects = [
     source_code_link: "https://github.com/matfrnr/TheResto",
   },
   {
-    name: "Mini Jeu",
+    name: "Mini Jeux",
     description:
-      "Envie de vous amuser ? Essayez ce site regroupant 6 mini-jeu unique et varié. De quoi passer un bon moment seul ou entre amis ! ",
+      "Envie de vous amuser ? Essayez ce site regroupant 6 mini-jeux uniques et variés. De quoi passer un bon moment seul ou entre amis ! ",
     tags: [
       {
         name: "html",

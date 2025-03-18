@@ -52,7 +52,7 @@ const Terminal = () => {
 
     const cvContent = (
         <div>
-            <div className='mb-2'>Envie d'en apprendre plus sur moi ? <a href="/src/assets/cv.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-300">Télécharger mon cv</a></div>
+            <div className='mb-2'>Envie d'en apprendre plus sur moi ? <a href="/portfolio3D/cv.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-300">Télécharger mon cv</a></div>
         </div>
     );
 

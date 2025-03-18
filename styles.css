@@ -65,3 +65,10 @@ body.loaded .spaceship {
     transform: scale(2);
   }
 }
+
+/* Masquer le curseur sur les appareils mobiles */
+@media (pointer: coarse) {
+  body {
+    cursor: none;
+  }
+}

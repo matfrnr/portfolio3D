@@ -19,6 +19,13 @@
   display: block;
 }
 
+/* Masquer le curseur sur les appareils mobiles */
+@media (pointer: coarse) {
+  body {
+    cursor: none;
+  }
+}
+
 .black-gradient {
   background: #000000; /* fallback for old browsers */
   background: -webkit-linear-gradient(

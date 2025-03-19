@@ -3,13 +3,43 @@ import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
 
+// Hook pour détecter la taille de l'écran
+const useWindowSize = () => {
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return windowSize;
+};
+
 const Hero = () => {
   const [text, setText] = useState("");
   const fullText = "Qui suis-je ?";
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
+  const size = useWindowSize();
 
   useEffect(() => {
+    if (size.width <= 768) {
+      setText(fullText);
+      return;
+    }
+
     const timeout = setTimeout(() => {
       if (!isDeleting) {
         setText(fullText.substring(0, text.length + 1));
@@ -27,7 +57,7 @@ const Hero = () => {
     }, isDeleting ? 100 : 200); // Vitesse d'écriture un peu plus lente que l'effacement
 
     return () => clearTimeout(timeout);
-  }, [text, isDeleting, loopNum]);
+  }, [text, isDeleting, loopNum, size.width]);
 
   // J'ai gardé la définition des variants mais je ne les utilise pas
   const cursorVariants = {

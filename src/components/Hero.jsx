@@ -59,18 +59,6 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, [text, isDeleting, loopNum, size.width]);
 
-  // J'ai gardé la définition des variants mais je ne les utilise pas
-  const cursorVariants = {
-    blinking: {
-      opacity: [0, 1, 0],
-      transition: {
-        duration: 1,
-        repeat: Infinity,
-        repeatType: "loop",
-      },
-    },
-  };
-
   const handleScroll = (e) => {
     e.preventDefault();
     document.querySelector(e.currentTarget.getAttribute("href")).scrollIntoView({

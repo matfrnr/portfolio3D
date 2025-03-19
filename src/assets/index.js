@@ -1,4 +1,5 @@
 import illustrationDev from "./illustrationDev.png";
+import logo2 from "./logo2.png";
 import backend from "./backend.png";
 import creator from "./creator.png";
 import mobile from "./mobile.png";
@@ -36,6 +37,7 @@ import master from "./company/master.png";
 
 export {
   illustrationDev,
+  logo2,
   vaisseau,
   vaisseau1,
   backend,

@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import { styles } from "../styles";
-import { ComputersCanvas } from "./canvas";
-
 
 const HeroMobile = () => {
     const [text, setText] = useState("");
@@ -11,8 +8,6 @@ const HeroMobile = () => {
     const [loopNum, setLoopNum] = useState(0);
 
     useEffect(() => {
-
-
         const timeout = setTimeout(() => {
             if (!isDeleting) {
                 setText(fullText.substring(0, text.length + 1));
@@ -32,27 +27,8 @@ const HeroMobile = () => {
         return () => clearTimeout(timeout);
     }, [text, isDeleting, loopNum]);
 
-    // J'ai gardé la définition des variants mais je ne les utilise pas
-    const cursorVariants = {
-        blinking: {
-            opacity: [0, 1, 0],
-            transition: {
-                duration: 1,
-                repeat: Infinity,
-                repeatType: "loop",
-            },
-        },
-    };
-
-    const handleScroll = (e) => {
-        e.preventDefault();
-        document.querySelector(e.currentTarget.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
-        });
-    };
-
     return (
-        <section className="relative w-full h-screen mx-auto">
+        <section className="relative w-full h-[400px] mx-auto mb-4 block sm:hidden">
             <div
                 className={`absolute inset-0 top-[120px] max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
             >
@@ -75,6 +51,24 @@ const HeroMobile = () => {
                         applications web modernes.
                     </p>
                 </div>
+            </div>
+
+            {/* Conteneur pour centrer la ligne ondulée */}
+            <div className="absolute bottom-0 w-full flex justify-center mt-10">
+                {/* Ligne ondulée violette centrée avec 50% de largeur */}
+                <svg
+                    className="w-3/5"
+                    height="40"
+                    viewBox="0 0 400 40"
+                    preserveAspectRatio="none"
+                >
+                    <path
+                        d="M0,20 C33,8 67,32 100,20 C133,8 167,32 200,20 C233,8 267,32 300,20 C333,8 367,32 400,20"
+                        stroke="#915EFF"
+                        strokeWidth="6"
+                        fill="none"
+                    />
+                </svg>
             </div>
         </section>
     );

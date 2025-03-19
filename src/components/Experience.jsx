@@ -64,6 +64,25 @@ const ExperienceCard = ({ experience }) => {
 };
 
 const Experience = () => {
+  // Check if the device is mobile
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    // Update the state based on window width
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    // Initial check
+    checkMobile();
+
+    // Add event listener for resize
+    window.addEventListener('resize', checkMobile);
+
+    // Clean up event listener
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <>
       <motion.div variants={textVariant()} className="flex flex-col items-center">
@@ -79,7 +98,7 @@ const Experience = () => {
       </motion.div>
 
       <div className='mt-20 flex flex-col'>
-        <VerticalTimeline>
+        <VerticalTimeline animate={!isMobile}>
           {experiences.map((experience, index) => (
             <ExperienceCard
               key={`experience-${index}`}

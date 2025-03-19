@@ -15,7 +15,7 @@ import BottomRightBanner from "./BottomRightBanner ";
 import Contact from "./Contact";
 import CanvasLoader from "./Loader";
 import Terminal from "./Terminal";
-
+import HeroMobile from "./HeroMobile";
 export {
   Hero,
   Navbar,
@@ -32,4 +32,5 @@ export {
   ComputersCanvas,
   StarsCanvas,
   Terminal,
+  HeroMobile
 };

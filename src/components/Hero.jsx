@@ -35,10 +35,7 @@ const Hero = () => {
   const size = useWindowSize();
 
   useEffect(() => {
-    if (size.width <= 768) {
-      setText(fullText);
-      return;
-    }
+   
 
     const timeout = setTimeout(() => {
       if (!isDeleting) {
@@ -89,6 +86,9 @@ const Hero = () => {
             qui conçois et développe des             <br className="sm:block hidden" />
             applications web modernes.
           </p>
+          <br>
+          </br>
+          <p className="text-[#915EFF] font-semibold text-[18px]">Embarquez pour un voyage <br></br>à bord de mon portfolio 🚀🧑‍🚀</p>
         </div>
       </div>
 

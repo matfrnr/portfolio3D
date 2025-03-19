@@ -49,6 +49,21 @@ body.loaded .spaceship {
   display: block; /* Affiche le vaisseau après le chargement */
 }
 
+@media screen and (max-width: 600px) {
+  .spaceship {
+    display: none;
+  }
+  .spaceship img {
+    display: none;
+  }
+  body.loaded .spaceship {
+    display: none;
+  }
+  .smoke {
+    display: none;
+  }
+}
+
 .smoke {
   position: absolute;
   width: 10px;

@@ -66,31 +66,31 @@ const services = [
 const technologies = [
   {
     name: "HTML",
-    icon: html,
+    icon: c,
   },
   {
     name: "CSS",
-    icon: css,
+    icon: c,
   },
   {
     name: "JavaScript",
-    icon: javascript,
+    icon: c,
   },
   {
     name: "TypeScript",
-    icon: typescript,
+    icon: c,
   },
   {
     name: "Angular",
-    icon: angular,
+    icon: c,
   },
   {
     name: "Vue.JS",
-    icon: vue,
+    icon: c,
   },
   {
     name: "React",
-    icon: reactjs,
+    icon: c,
   },
   {
     name: "SQL",

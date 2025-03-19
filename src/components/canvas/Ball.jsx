@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   Decal,
@@ -10,11 +10,34 @@ import {
 
 import CanvasLoader from "../Loader";
 
+// Hook pour détecter la taille de l'écran
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return isMobile;
+};
+
 const Ball = (props) => {
   const [decal] = useTexture([props.imgUrl]);
+  const isMobile = useIsMobile();
 
   return (
-    <Float speed={2.5} rotationIntensity={1.5} floatIntensity={2}> {/* Modification ici */}
+    <Float
+      speed={isMobile ? 0 : 2.5}
+      rotationIntensity={isMobile ? 0 : 1.5}
+      floatIntensity={isMobile ? 0 : 2}
+    >
       <ambientLight intensity={0.8} />
       <directionalLight position={[0, 0, 0.05]} intensity={1} />
       <mesh castShadow receiveShadow scale={2.75}>
@@ -40,7 +63,7 @@ const Ball = (props) => {
 const BallCanvas = ({ icon }) => {
   return (
     <Canvas
-      frameloop='always' // Modification ici
+      frameloop='always'
       dpr={[1, 2]}
       gl={{ preserveDrawingBuffer: true }}
     >
@@ -53,4 +76,5 @@ const BallCanvas = ({ icon }) => {
     </Canvas>
   );
 };
+
 export default BallCanvas;

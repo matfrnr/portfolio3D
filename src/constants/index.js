@@ -98,7 +98,7 @@ const technologies = [
   },
   {
     name: "C++",
-    icon: html,
+    icon: c,
   },
   {
     name: "Three JS",

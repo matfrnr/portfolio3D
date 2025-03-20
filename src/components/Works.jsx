@@ -126,6 +126,7 @@ const ProjectCard = ({
     </motion.div>
   );
 };
+
 const Works = () => {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -145,19 +146,34 @@ const Works = () => {
 
   return (
     <>
-      <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} `}>Réalisations</p>
-        <h2 className={`${styles.sectionHeadText}`}>Mes projets 🚀</h2>
-      </motion.div>
-
-      <div className='w-full flex'>
-        <motion.p
-          variants={fadeIn("", "", 0.1, 1)}
-          className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'
-        >
-          Découvrez une sélection de mes réalisations témoignant de mes compétences et de mon expérience. Vous trouverez pour chaque réalisation une brève description, la technologie utilisée et un lien vers le code source sur GitHub. En espérant que cela vous plaise😉
-        </motion.p>
-      </div>
+      {isMobile ? (
+        <>
+          <div>
+            <p className={`${styles.sectionSubText} `}>Réalisations</p>
+            <h2 className={`${styles.sectionHeadText}`}>Mes projets 🚀</h2>
+          </div>
+          <div className='w-full flex'>
+            <p className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'>
+              Découvrez une sélection de mes réalisations témoignant de mes compétences et de mon expérience. Vous trouverez pour chaque réalisation une brève description, la technologie utilisée et un lien vers le code source sur GitHub. En espérant que cela vous plaise😉
+            </p>
+          </div>
+        </>
+      ) : (
+        <>
+          <motion.div variants={textVariant()}>
+            <p className={`${styles.sectionSubText} `}>Réalisations</p>
+            <h2 className={`${styles.sectionHeadText}`}>Mes projets 🚀</h2>
+          </motion.div>
+          <div className='w-full flex'>
+            <motion.p
+              variants={fadeIn("", "", 0.1, 1)}
+              className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'
+            >
+              Découvrez une sélection de mes réalisations témoignant de mes compétences et de mon expérience. Vous trouverez pour chaque réalisation une brève description, la technologie utilisée et un lien vers le code source sur GitHub. En espérant que cela vous plaise😉
+            </motion.p>
+          </div>
+        </>
+      )}
 
       <div className='mt-20 flex flex-wrap gap-7'>
         {projects.map((project, index) => (

@@ -1,5 +1,5 @@
-import React, { Suspense, useEffect, useState } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import React, { Suspense, useEffect, useState, useRef } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import {
   Decal,
   Float,
@@ -10,9 +10,13 @@ import {
 
 import CanvasLoader from "../Loader";
 
+// Cache global pour les textures
+const textureCache = {};
+
 const Ball = (props) => {
   const [decal] = useTexture([props.imgUrl]);
   const [isMobile, setIsMobile] = useState(false);
+  const meshRef = useRef();
 
   useEffect(() => {
     // Vérifier si on est sur mobile
@@ -30,23 +34,23 @@ const Ball = (props) => {
     };
   }, []);
 
-  // Force renderisation continue
-  useFrame((state) => {
-    state.camera.lookAt(0, 0, 0);
-    if (isMobile) {
-      state.gl.render(state.scene, state.camera);
+  // Force une légère rotation continue
+  useFrame(() => {
+    if (meshRef.current) {
+      meshRef.current.rotation.x += 0.001;
+      meshRef.current.rotation.y += 0.001;
     }
   });
 
   return (
     <Float
-      speed={isMobile ? 1.5 : 2.5}  // Réduit pour mobile
-      rotationIntensity={isMobile ? 0.8 : 1.5}  // Réduit pour mobile
-      floatIntensity={isMobile ? 1 : 2}  // Réduit pour mobile
+      speed={isMobile ? 1.5 : 2.5}
+      rotationIntensity={isMobile ? 0.8 : 1.5}
+      floatIntensity={isMobile ? 1 : 2}
     >
       <ambientLight intensity={0.8} />
       <directionalLight position={[0, 0, 0.05]} intensity={1} />
-      <mesh castShadow receiveShadow scale={2.75}>
+      <mesh ref={meshRef} castShadow receiveShadow scale={2.75}>
         <icosahedronGeometry args={[1, 1]} />
         <meshStandardMaterial
           color='#fff8eb'
@@ -66,13 +70,39 @@ const Ball = (props) => {
   );
 };
 
+// Composant pour forcer le rendu et réinitialiser la caméra
+const SceneController = () => {
+  const { gl, scene, camera } = useThree();
+  
+  useFrame(() => {
+    gl.render(scene, camera);
+  });
+  
+  return null;
+};
+
 const BallCanvas = ({ icon }) => {
   const [isMobile, setIsMobile] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [key, setKey] = useState(0); // Pour forcer le remontage
+  const canvasRef = useRef(null);
+
+  // Précharger la texture
+  useEffect(() => {
+    if (icon && !textureCache[icon]) {
+      textureCache[icon] = true;
+      useTexture.preload(icon);
+    }
+  }, [icon]);
 
   useEffect(() => {
-    // S'assurer que le composant est monté côté client
-    setMounted(true);
+    // Force le remontage lors des transitions de page
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        setKey(prev => prev + 1);
+      }
+    };
+    
+    document.addEventListener('visibilitychange', handleVisibilityChange);
     
     // Vérifier si on est sur mobile
     const mediaQuery = window.matchMedia("(max-width: 767px)");
@@ -85,34 +115,47 @@ const BallCanvas = ({ icon }) => {
     mediaQuery.addEventListener("change", handleMediaQueryChange);
 
     return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
-      setMounted(false);
+      
+      // Nettoyer le contexte WebGL lors du démontage
+      if (canvasRef.current) {
+        const gl = canvasRef.current?.__r3f?.gl;
+        if (gl) {
+          gl.dispose();
+        }
+      }
     };
   }, []);
 
-  if (!mounted) return null;
-
   return (
-    <Canvas
-      frameloop='always'  // Toujours utiliser 'always' pour éviter les problèmes après navigation
-      dpr={isMobile ? [0.8, 1.5] : [1, 2]}  // Ajuster pour mobile
-      gl={{ 
-        preserveDrawingBuffer: true,
-        powerPreference: 'high-performance',
-        antialias: true
-      }}
-      style={{ touchAction: 'none' }} // Empêcher les conflits de touch events
-    >
-      <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls 
-          enableZoom={false}
-          enablePan={false}
-          rotateSpeed={isMobile ? 0.5 : 1}
-        />
-        <Ball imgUrl={icon} />
-      </Suspense>
-      <Preload all />
-    </Canvas>
+    <div style={{ width: "100%", height: "100%" }} key={key}>
+      <Canvas
+        ref={canvasRef}
+        frameloop='always'
+        dpr={isMobile ? [0.8, 1.5] : [1, 2]}
+        gl={{ 
+          preserveDrawingBuffer: true,
+          powerPreference: 'high-performance',
+          antialias: true
+        }}
+        style={{ touchAction: 'none' }}
+        onCreated={({ gl }) => {
+          gl.setClearColor('#000000', 0); // Fond transparent
+        }}
+      >
+        <Suspense fallback={<CanvasLoader />}>
+          <OrbitControls 
+            enableZoom={false}
+            enablePan={false}
+            rotateSpeed={isMobile ? 0.5 : 1}
+          />
+          <Ball imgUrl={icon} />
+          <SceneController />
+        </Suspense>
+        <Preload all />
+      </Canvas>
+    </div>
   );
 };
 

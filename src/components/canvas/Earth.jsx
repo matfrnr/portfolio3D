@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect, useState, useRef } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
@@ -11,32 +11,17 @@ const isMobile = () => {
   );
 };
 
-// Cache global pour éviter les rechargements multiples du modèle
-let cachedModel = null;
-
 const Earth = () => {
   const mobile = isMobile();
+  // Utiliser un scale légèrement réduit sur mobile, mais pas trop
   const scale = mobile ? 2.2 : 2.5;
-  const modelRef = useRef();
-
-  // Utiliser le cache global pour le modèle
-  if (!cachedModel) {
-    cachedModel = useGLTF("./planet/scene.gltf");
-  }
-
-  const earth = cachedModel;
-
-  // Assurer que la rotation est toujours active
-  useFrame(() => {
-    if (modelRef.current) {
-      modelRef.current.rotation.y += 0.002;
-    }
-  });
+  
+  // Ne pas utiliser le paramètre "true" qui causait des problèmes
+  const earth = useGLTF("./planet/scene.gltf");
 
   return (
     <primitive
-      ref={modelRef}
-      object={earth.scene.clone()} // Clone pour éviter les conflits de référence
+      object={earth.scene}
       scale={scale}
       position-y={0}
       rotation-y={0}
@@ -44,107 +29,86 @@ const Earth = () => {
   );
 };
 
-// Composant pour forcer les rendus et réinitialiser la caméra
-const SceneController = () => {
-  const { gl, scene, camera } = useThree();
-
-  useFrame(() => {
-    gl.render(scene, camera);
+// Composant qui force le rendu même en mode frameloop='demand'
+const AutoRotate = () => {
+  useFrame((state) => {
+    state.scene.rotation.y += 0.002;
   });
-
-  // Réinitialiser la position de la caméra
-  useEffect(() => {
-    camera.position.set(-4, 3, 6);
-    camera.lookAt(0, 0, 0);
-  }, [camera]);
-
   return null;
 };
 
-const EarthCanvas = () => {
+const EarthCanvasContent = () => {
   const mobile = isMobile();
-  const [key, setKey] = useState(0); // Utilisé pour forcer le remontage
-  const canvasRef = useRef(null);
-
-  // Force le remontage du composant lors des transitions de page
-  useEffect(() => {
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        setKey(prev => prev + 1);
-      }
-    };
-
-    // Détection de retour à la page
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-
-    // Nettoyer lors du démontage
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-    };
-  }, []);
-
-  // Précharger le modèle au montage
-  useEffect(() => {
-    useGLTF.preload("./planet/scene.gltf");
-
-    // Nettoyage complet lors du démontage
-    return () => {
-      if (canvasRef.current) {
-        // Forcer le nettoyage du contexte WebGL
-        const gl = canvasRef.current?.__r3f?.gl;
-        if (gl) {
-          gl.dispose();
-        }
-      }
-
-      // Libérer les ressources du modèle lorsqu'on quitte complètement
-      if (typeof window !== 'undefined' && window.location.pathname !== '/') {
-        cachedModel = null;
-        useGLTF.clear();
-      }
-    };
-  }, []);
-
+  
+  // Réglages moins agressifs pour garantir l'affichage
   const dprValue = mobile ? [0.8, 1.5] : [1, 2];
 
   return (
-    <div style={{ width: "100%", height: "100%" }} key={key}>
-      <Canvas
-        ref={canvasRef}
-        shadows={!mobile}
-        frameloop='always'
-        dpr={dprValue}
-        gl={{
-          preserveDrawingBuffer: true,
-          powerPreference: 'high-performance',
-          antialias: true,
-        }}
-        camera={{
-          fov: 45,
-          near: 0.1,
-          far: 200,
-          position: [-4, 3, 6],
-        }}
-        style={{ touchAction: 'none' }}
-        onCreated={({ gl }) => {
-          gl.setClearColor('#000000', 0); // Fond transparent
-        }}
-      >
-        <Suspense fallback={<CanvasLoader />}>
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[10, 10, 5]} intensity={1} />
-          <OrbitControls
-            autoRotate
-            autoRotateSpeed={mobile ? 1.5 : 2}
-            enableZoom={false}
-            maxPolarAngle={Math.PI / 2}
-            minPolarAngle={Math.PI / 2}
-          />
-          <Earth />
-          <SceneController />
-          <Preload all />
-        </Suspense>
-      </Canvas>
+    <Canvas
+      shadows={!mobile} // Désactiver les ombres sur mobile
+      frameloop='demand' // Utiliser 'demand' au lieu de 'never' qui était trop restrictif
+      dpr={dprValue}
+      gl={{
+        preserveDrawingBuffer: true,
+        powerPreference: 'high-performance',
+        antialias: true, // Garder l'antialiasing pour la qualité visuelle
+      }}
+      camera={{
+        fov: 45,
+        near: 0.1,
+        far: 200, // Garder la même distance de vue pour éviter les problèmes
+        position: [-4, 3, 6],
+      }}
+    >
+      <Suspense fallback={<CanvasLoader />}>
+        <OrbitControls
+          autoRotate
+          autoRotateSpeed={mobile ? 1.5 : 2} // Légèrement réduit sur mobile
+          enableZoom={false}
+          maxPolarAngle={Math.PI / 2}
+          minPolarAngle={Math.PI / 2}
+        />
+        <Earth />
+        {mobile && <AutoRotate />} {/* Assure la rotation même sur mobile */}
+        <Preload all /> {/* Garder le préchargement pour éviter les problèmes d'affichage */}
+      </Suspense>
+    </Canvas>
+  );
+};
+
+const EarthCanvas = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Mettre à jour l'état lorsque la visibilité change
+        setIsVisible(entry.isIntersecting);
+      },
+      {
+        root: null, // Utiliser le viewport comme zone d'observation
+        rootMargin: '0px', // Pas de marge
+        threshold: 0.1, // Considérer visible dès que 10% est visible
+      }
+    );
+
+    const currentRef = ref.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    // Nettoyer l'observer lorsque le composant est démonté
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
+
+  return (
+    <div ref={ref} style={{ width: '100%', height: '100%', minHeight: '500px' }}>
+      {isVisible && <EarthCanvasContent />}
     </div>
   );
 };

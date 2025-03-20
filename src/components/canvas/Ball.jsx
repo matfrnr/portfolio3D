@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useRef, useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   Decal,
@@ -14,13 +14,13 @@ const Ball = (props) => {
   const [decal] = useTexture([props.imgUrl]);
 
   return (
-    <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
-      <ambientLight intensity={0.25} />
-      <directionalLight position={[0, 0, 0.05]} />
+    <Float speed={1.75} rotationIntensity={1} floatIntensity={1.5}>
+      <ambientLight intensity={0.6} />
+      <directionalLight position={[0, 0, 0.05]} intensity={0.8} />
       <mesh castShadow receiveShadow scale={2.75}>
         <icosahedronGeometry args={[1, 1]} />
         <meshStandardMaterial
-          color='#fff8eb'
+          color="#fff8eb"
           polygonOffset
           polygonOffsetFactor={-5}
           flatShading
@@ -38,19 +38,50 @@ const Ball = (props) => {
 };
 
 const BallCanvas = ({ icon }) => {
-  return (
-    <Canvas
-      frameloop='demand'
-      dpr={[1, 2]}
-      gl={{ preserveDrawingBuffer: true }}
-    >
-      <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls enableZoom={false} />
-        <Ball imgUrl={icon} />
-      </Suspense>
+  const [frameLoop, setFrameLoop] = useState("demand");
+  const canvasRef = useRef(null);
 
-      <Preload all />
-    </Canvas>
+  useEffect(() => {
+    const handleInteraction = () => {
+      setFrameLoop("always");
+
+      // Revenir au mode "demand" après une période d'inactivité
+      const timer = setTimeout(() => {
+        setFrameLoop("demand");
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    };
+
+    const element = canvasRef.current;
+    if (element) {
+      element.addEventListener("mouseover", handleInteraction);
+      element.addEventListener("touchstart", handleInteraction);
+    }
+
+    return () => {
+      if (element) {
+        element.removeEventListener("mouseover", handleInteraction);
+        element.removeEventListener("touchstart", handleInteraction);
+      }
+    };
+  }, []);
+
+  return (
+    <div ref={canvasRef} className="w-full h-full">
+      <Canvas
+        frameloop={frameLoop}
+        dpr={[1, 1.5]} // Réduit pour meilleures performances sur mobile
+        gl={{ preserveDrawingBuffer: true, powerPreference: 'default' }}
+      >
+        <Suspense fallback={<CanvasLoader />}>
+          <OrbitControls enableZoom={false} enablePan={false} />
+          <Ball imgUrl={icon} />
+        </Suspense>
+
+        <Preload all />
+      </Canvas>
+    </div>
   );
 };
 

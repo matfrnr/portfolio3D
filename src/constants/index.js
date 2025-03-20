@@ -108,14 +108,7 @@ const technologies = [
     name: "git",
     icon: git,
   },
-  {
-    name: "git",
-    icon: git,
-  },
-  {
-    name: "git",
-    icon: git,
-  },
+
   {
     name: "PHP",
     icon: php,

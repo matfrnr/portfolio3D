@@ -1,41 +1,76 @@
-import React, { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
+import React, { Suspense, useEffect, useState } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
 
-const Earth = () => {
-  const earth = useGLTF("./planet/scene.gltf");
-
-  return (
-    <primitive object={earth.scene} scale={2.5} position-y={0} rotation-y={0} />
+// Fonction pour détecter si l'appareil est mobile
+const isMobile = () => {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
   );
 };
 
+const Earth = () => {
+  const mobile = isMobile();
+  // Utiliser un scale légèrement réduit sur mobile, mais pas trop
+  const scale = mobile ? 2.2 : 2.5;
+  
+  // Ne pas utiliser le paramètre "true" qui causait des problèmes
+  const earth = useGLTF("./planet/scene.gltf");
+
+  return (
+    <primitive 
+      object={earth.scene} 
+      scale={scale} 
+      position-y={0} 
+      rotation-y={0} 
+    />
+  );
+};
+
+// Composant qui force le rendu même en mode frameloop='demand'
+const AutoRotate = () => {
+  useFrame((state) => {
+    state.scene.rotation.y += 0.002;
+  });
+  return null;
+};
+
 const EarthCanvas = () => {
+  const mobile = isMobile();
+  
+  // Réglages moins agressifs pour garantir l'affichage
+  const dprValue = mobile ? [0.8, 1.5] : [1, 2];
+
   return (
     <Canvas
-      shadows
-      frameloop='demand'
-      dpr={[1, 2]}
-      gl={{ preserveDrawingBuffer: true }}
+      shadows={!mobile} // Désactiver les ombres sur mobile
+      frameloop='demand' // Utiliser 'demand' au lieu de 'never' qui était trop restrictif
+      dpr={dprValue}
+      gl={{ 
+        preserveDrawingBuffer: true,
+        powerPreference: 'high-performance',
+        antialias: true, // Garder l'antialiasing pour la qualité visuelle
+      }}
       camera={{
         fov: 45,
         near: 0.1,
-        far: 200,
+        far: 200, // Garder la même distance de vue pour éviter les problèmes
         position: [-4, 3, 6],
       }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
           autoRotate
+          autoRotateSpeed={mobile ? 1.5 : 2} // Légèrement réduit sur mobile
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
         <Earth />
-
-        <Preload all />
+        {mobile && <AutoRotate />} {/* Assure la rotation même sur mobile */}
+        <Preload all /> {/* Garder le préchargement pour éviter les problèmes d'affichage */}
       </Suspense>
     </Canvas>
   );

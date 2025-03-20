@@ -19,9 +19,9 @@ const ProjectCard = ({
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Check if device is mobile
+    // Une meilleure détection pour mobile qui utilise la largeur d'écran
     const checkMobile = () => {
-      setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
+      setIsMobile(window.innerWidth < 768); // 768px est généralement la limite pour les tablettes/mobiles
     };
 
     checkMobile();
@@ -34,74 +34,93 @@ const ProjectCard = ({
 
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
-      <Tilt
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        tiltEnable={!isMobile}
-        className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full h-[470px] flex flex-col'
-      >
-        <div className='relative w-full h-[230px]'>
-          <img
-            src={image}
-            alt='project_image'
-            className='w-full h-full object-cover rounded-2xl'
-          />
-
-          <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
-            <div
-              onClick={() => window.open(source_code_link, "_blank")}
-              className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
-            >
-              <img
-                src={github}
-                alt='source code'
-                className='w-1/2 h-1/2 object-contain'
-              />
+      {isMobile ? (
+        // Version simplifiée pour mobile sans Tilt
+        <div className='bg-tertiary p-5 rounded-2xl w-full flex flex-col'>
+          <div className='relative w-full h-[230px]'>
+            <img
+              src={image}
+              alt='project_image'
+              className='w-full h-full object-cover rounded-2xl'
+            />
+            <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
+              <div
+                onClick={() => window.open(source_code_link, "_blank")}
+                className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
+              >
+                <img
+                  src={github}
+                  alt='source code'
+                  className='w-1/2 h-1/2 object-contain'
+                />
+              </div>
             </div>
           </div>
+          <div className='mt-5 flex-grow'>
+            <h3 className='text-white font-bold text-[24px]'>{name}</h3>
+            <p className='mt-2 text-secondary text-[14px]'>{description}</p>
+          </div>
+          <div className='mt-4 flex flex-wrap gap-2'>
+            {tags.map((tag) => (
+              <p
+                key={`${name}-${tag.name}`}
+                className={`text-[14px] ${tag.color}`}
+              >
+                #{tag.name}
+              </p>
+            ))}
+          </div>
         </div>
-
-        <div className='mt-5 flex-grow'>
-          <h3 className='text-white font-bold text-[24px]'>{name}</h3>
-          <p className='mt-2 text-secondary text-[14px]'>{description}</p>
-        </div>
-
-        <div className='mt-4 flex flex-wrap gap-2 user'>
-          {tags.map((tag) => (
-            <p
-              key={`${name}-${tag.name}`}
-              className={`text-[14px] ${tag.color}`}
-              style={{ userSelect: 'none' }}
-            >
-              #{tag.name}
-            </p>
-          ))}
-        </div>
-      </Tilt>
+      ) : (
+        // Version avec Tilt pour desktop
+        <Tilt
+          options={{
+            max: 45,
+            scale: 1,
+            speed: 450,
+          }}
+          className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full flex flex-col'
+        >
+          <div className='relative w-full h-[230px]'>
+            <img
+              src={image}
+              alt='project_image'
+              className='w-full h-full object-cover rounded-2xl'
+            />
+            <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
+              <div
+                onClick={() => window.open(source_code_link, "_blank")}
+                className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
+              >
+                <img
+                  src={github}
+                  alt='source code'
+                  className='w-1/2 h-1/2 object-contain'
+                />
+              </div>
+            </div>
+          </div>
+          <div className='mt-5 flex-grow'>
+            <h3 className='text-white font-bold text-[24px]'>{name}</h3>
+            <p className='mt-2 text-secondary text-[14px]'>{description}</p>
+          </div>
+          <div className='mt-4 flex flex-wrap gap-2'>
+            {tags.map((tag) => (
+              <p
+                key={`${name}-${tag.name}`}
+                className={`text-[14px] ${tag.color}`}
+              >
+                #{tag.name}
+              </p>
+            ))}
+          </div>
+        </Tilt>
+      )}
     </motion.div>
   );
 };
 
 const Works = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    // Check if device is mobile
-    const checkMobile = () => {
-      setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-
-    return () => {
-      window.removeEventListener('resize', checkMobile);
-    };
-  }, []);
-
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -118,7 +137,7 @@ const Works = () => {
         </motion.p>
       </div>
 
-      <div className='mt-20 flex flex-wrap gap-7'>
+      <div className='mt-20 flex flex-wrap gap-7 justify-center'>
         {projects.map((project, index) => (
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}
@@ -126,5 +145,4 @@ const Works = () => {
     </>
   );
 };
-
 export default SectionWrapper(Works, "project");

@@ -108,8 +108,20 @@ const MobileEarthCanvas = () => {
     };
   }, []);
 
+  // Utilisez le même style que celui que vous aviez dans votre composant original
+  // Ces propriétés CSS garantissent que le conteneur se comporte exactement comme avant
   return (
-    <div ref={ref} style={{ width: '100%', height: '100%', minHeight: '500px' }}>
+    <div 
+      ref={ref} 
+      style={{ 
+        width: '100%', 
+        height: '100%',
+        position: 'relative',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}
+    >
       {isVisible && <EarthCanvasContent />}
     </div>
   );

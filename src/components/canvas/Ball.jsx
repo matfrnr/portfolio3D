@@ -32,9 +32,9 @@ const Ball = (props) => {
 
   return (
     <Float
-      speed={2.5}  // Valeur originale pour PC
-      rotationIntensity={1.5}  // Valeur originale pour PC
-      floatIntensity={2}  // Valeur originale pour PC
+      speed={isMobile ? 2 : 2.5}  // Vitesse réduite pour mobile
+      rotationIntensity={isMobile ? 0.5 : 1.5}  // Intensité de rotation réduite pour mobile
+      floatIntensity={isMobile ? 1 : 2}  // Intensité de flottement réduite pour mobile
     >
       <ambientLight intensity={0.8} />
       <directionalLight position={[0, 0, 0.05]} intensity={1} />
@@ -79,7 +79,7 @@ const BallCanvas = ({ icon }) => {
 
   return (
     <Canvas
-      frameloop={isMobile ? 'demand' : 'always'}  // 'always' est la valeur originale pour PC
+      frameloop='always'  // Toujours en continu
       dpr={[1, 2]}  // Valeur originale pour PC
       gl={{ preserveDrawingBuffer: true }}
     >

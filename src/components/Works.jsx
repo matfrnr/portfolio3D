@@ -36,30 +36,29 @@ const ProjectCard = ({
     // Version ultra basique pour mobile sans animations
     return (
       <div className='bg-tertiary p-4 rounded-lg w-full mb-6'>
-        <div className='w-full'>
+        <div className='relative w-full'>
           <img
             src={image}
             alt={name}
             className='w-full h-48 object-cover rounded-lg'
           />
 
-          <div className='mt-3'>
-            <a
-              href={source_code_link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className='inline-block bg-black p-2 rounded-full mb-3'
+          {/* Logo GitHub positionné sur l'image comme dans la version originale */}
+          <div className='absolute inset-0 flex justify-end m-3'>
+            <div
+              onClick={() => window.open(source_code_link, "_blank")}
+              className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
             >
               <img
                 src={github}
-                alt='GitHub'
-                className='w-5 h-5'
+                alt='source code'
+                className='w-1/2 h-1/2 object-contain'
               />
-            </a>
+            </div>
           </div>
         </div>
 
-        <h3 className='text-white font-bold text-xl mt-2'>{name}</h3>
+        <h3 className='text-white font-bold text-xl mt-3'>{name}</h3>
         <p className='text-secondary text-sm mt-2'>{description}</p>
 
         <div className='mt-3 flex flex-wrap gap-2'>
@@ -127,14 +126,13 @@ const ProjectCard = ({
     </motion.div>
   );
 };
-
 const Works = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Détection mobile
+    // Check if device is mobile
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+      setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
     };
 
     checkMobile();
@@ -147,46 +145,25 @@ const Works = () => {
 
   return (
     <>
-      {isMobile ? (
-        // Version mobile ultra basique sans animations
-        <div className="py-6 px-4">
-          <p className="text-secondary text-sm uppercase">Réalisations</p>
-          <h2 className="text-white font-black md:text-4xl text-3xl">Mes projets 🚀</h2>
+      <motion.div variants={textVariant()}>
+        <p className={`${styles.sectionSubText} `}>Réalisations</p>
+        <h2 className={`${styles.sectionHeadText}`}>Mes projets 🚀</h2>
+      </motion.div>
 
-          <p className="mt-3 text-secondary text-base max-w-3xl">
-            Découvrez une sélection de mes réalisations témoignant de mes compétences et de mon expérience. Vous trouverez pour chaque réalisation une brève description, la technologie utilisée et un lien vers le code source sur GitHub. En espérant que cela vous plaise😉
-          </p>
+      <div className='w-full flex'>
+        <motion.p
+          variants={fadeIn("", "", 0.1, 1)}
+          className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'
+        >
+          Découvrez une sélection de mes réalisations témoignant de mes compétences et de mon expérience. Vous trouverez pour chaque réalisation une brève description, la technologie utilisée et un lien vers le code source sur GitHub. En espérant que cela vous plaise😉
+        </motion.p>
+      </div>
 
-          <div className="mt-10">
-            {projects.map((project, index) => (
-              <ProjectCard key={`project-${index}`} index={index} {...project} />
-            ))}
-          </div>
-        </div>
-      ) : (
-        // Version desktop avec animations
-        <>
-          <motion.div variants={textVariant()}>
-            <p className={`${styles.sectionSubText} `}>Réalisations</p>
-            <h2 className={`${styles.sectionHeadText}`}>Mes projets 🚀</h2>
-          </motion.div>
-
-          <div className='w-full flex'>
-            <motion.p
-              variants={fadeIn("", "", 0.1, 1)}
-              className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'
-            >
-              Découvrez une sélection de mes réalisations témoignant de mes compétences et de mon expérience. Vous trouverez pour chaque réalisation une brève description, la technologie utilisée et un lien vers le code source sur GitHub. En espérant que cela vous plaise😉
-            </motion.p>
-          </div>
-
-          <div className='mt-20 flex flex-wrap gap-7'>
-            {projects.map((project, index) => (
-              <ProjectCard key={`project-${index}`} index={index} {...project} />
-            ))}
-          </div>
-        </>
-      )}
+      <div className='mt-20 flex flex-wrap gap-7'>
+        {projects.map((project, index) => (
+          <ProjectCard key={`project-${index}`} index={index} {...project} />
+        ))}
+      </div>
     </>
   );
 };

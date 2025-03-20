@@ -19,6 +19,12 @@
   display: block;
 }
 
+@media screen and (max-width: 768px) {
+  .hash-span {
+    display: none;
+  }
+}
+
 /* Masquer le curseur sur les appareils mobiles */
 @media (pointer: coarse) {
   body {

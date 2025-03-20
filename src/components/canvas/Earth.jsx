@@ -37,6 +37,7 @@ const AutoRotate = () => {
   return null;
 };
 
+// Le contenu original du Canvas
 const EarthCanvasContent = () => {
   const mobile = isMobile();
   
@@ -76,7 +77,8 @@ const EarthCanvasContent = () => {
   );
 };
 
-const EarthCanvas = () => {
+// Composant mobile avec chargement/déchargement conditionnel
+const MobileEarthCanvas = () => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
 
@@ -111,6 +113,15 @@ const EarthCanvas = () => {
       {isVisible && <EarthCanvasContent />}
     </div>
   );
+};
+
+// Le composant principal qui choisit entre la version mobile et desktop
+const EarthCanvas = () => {
+  const mobile = isMobile();
+  
+  // Si mobile, utiliser la version avec chargement/déchargement conditionnel
+  // Sinon, utiliser la version originale
+  return mobile ? <MobileEarthCanvas /> : <EarthCanvasContent />;
 };
 
 export default EarthCanvas;

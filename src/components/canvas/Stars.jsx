@@ -1,7 +1,31 @@
-import { useState, useRef, Suspense } from "react";
+import { useState, useRef, Suspense, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Preload } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.esm";
+
+// Hook pour détecter la taille de l'écran
+const useWindowSize = () => {
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return windowSize;
+};
 
 const Stars = (props) => {
   const ref = useRef();
@@ -28,6 +52,13 @@ const Stars = (props) => {
 };
 
 const StarsCanvas = () => {
+  const size = useWindowSize();
+
+  // Désactiver sur les écrans de moins de 768px de large (taille mobile)
+  if (size.width < 768) {
+    return null;
+  }
+
   return (
     <div className='w-full h-auto absolute inset-0 z-[-1]'>
       <Canvas camera={{ position: [0, 0, 1] }}>

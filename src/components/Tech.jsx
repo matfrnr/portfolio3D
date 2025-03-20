@@ -5,8 +5,8 @@ import { technologies } from "../constants";
 
 const Tech = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const [visibleTechnologies, setVisibleTechnologies] = useState(technologies);
-  const [showAll, setShowAll] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [visibleTechnologies, setVisibleTechnologies] = useState([]);
   
   // Détecter si on est sur mobile
   useEffect(() => {
@@ -27,19 +27,23 @@ const Tech = () => {
   
   // Configurer les technologies visibles en fonction du device
   useEffect(() => {
-    if (isMobile && !showAll) {
-      // Sur mobile, montrer seulement la moitié des technologies
-      setVisibleTechnologies(technologies.slice(0, Math.ceil(technologies.length / 2)));
+    if (isMobile) {
+      // Sur mobile, diviser les technologies en deux groupes
+      const halfSize = 6;
+      const firstHalf = technologies.slice(0, halfSize);
+      const secondHalf = technologies.slice(halfSize);
+      
+      // Afficher le premier ou le deuxième groupe en fonction de currentPage
+      setVisibleTechnologies(currentPage === 0 ? firstHalf : secondHalf);
     } else {
-      // Sur desktop ou après "Voir plus", montrer toutes les technologies
+      // Sur desktop, montrer toutes les technologies
       setVisibleTechnologies(technologies);
     }
-  }, [isMobile, showAll]);
+  }, [isMobile, currentPage]);
   
-  const handleShowMore = () => {
-    setShowAll(true);
-    // Montrer toutes les technologies
-    setVisibleTechnologies(technologies);
+  const handleToggleTechnologies = () => {
+    // Basculer entre 0 et 1
+    setCurrentPage(currentPage === 0 ? 1 : 0);
   };
   
   return (
@@ -52,14 +56,14 @@ const Tech = () => {
         ))}
       </div>
       
-      {/* Afficher le bouton "Voir plus" uniquement sur mobile et si toutes les technologies ne sont pas affichées */}
-      {isMobile && !showAll && (
+      {/* Afficher le bouton uniquement sur mobile */}
+      {isMobile && (
         <div className="mt-8 flex justify-center">
           <button
-            onClick={handleShowMore}
+            onClick={handleToggleTechnologies}
             className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
           >
-            Voir plus
+            {currentPage === 0 ? "Voir plus" : "Voir précédent"}
           </button>
         </div>
       )}

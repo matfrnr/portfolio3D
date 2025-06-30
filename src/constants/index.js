@@ -28,6 +28,7 @@ import {
   master,
   lrp,
   myDigitalSchool,
+  open,
 } from "../assets";
 
 export const navLinks = [
@@ -160,6 +161,20 @@ const experiences = [
       "Collaboration avec l'équipe backend pour l'utilisation des API.",
       "Participation aux revues de code et échanges avec les autres développeurs.",
       "Amélioration continue du code et mise à niveau vers Angular 19.",
+    ],
+  },
+  {
+    title: "Concepteur développeur",
+    type: "Alternance",
+    company_name: "Open",
+    icon: open,
+    iconBg: "#E6DEDD",
+    date: "Septembre 2025 - Août 2027",
+    points: [
+      "Développement et maintenance d'une sonde de supervision pour le ministère de la transition écologique.",
+      "Développement en NodeJS sous environnement Linux avec des scripts Shell, Python et Perl.",
+      "Mise en place et amélioration des méthodologies de développement au sein de l'équipe.",
+      "Participation à la remontée d'alertes et au monitoring des systèmes critiques.",
     ],
   },
 ];

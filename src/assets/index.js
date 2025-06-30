@@ -35,6 +35,7 @@ import iut1Grenoble from "./company/iut1Grenoble.png";
 import lrp from "./company/lrp.png";
 import master from "./company/master.png";
 import myDigitalSchool from "./company/myDigitalSchool.png";
+import open from "./company/open.jpg";
 
 export {
   illustrationDev,
@@ -72,5 +73,6 @@ export {
   iut1Grenoble,
   master,
   lrp,
-  myDigitalSchool
+  myDigitalSchool,
+  open
 };

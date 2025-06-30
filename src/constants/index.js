@@ -27,6 +27,7 @@ import {
   iut1Lyon,
   master,
   lrp,
+  myDigitalSchool,
 } from "../assets";
 
 export const navLinks = [
@@ -191,12 +192,17 @@ const parcours = [
     ],
   },
   {
-    title: "Master ...",
-    company_name: "",
-    icon: master,
+    title: "MBA Développeur Full-Stack",
+    company_name: "MyDigitalSchool, Grenoble",
+    icon: myDigitalSchool,
     iconBg: "#E6DEDD",
-    date: "2025-...",
-    points: ["À suivre..."],
+    date: "2025-2027",
+    points: [
+      "Formation en développement web moderne, couvrant les technologies front-end et back-end.",
+      "Maîtrise des frameworks JavaScript avancés et des technologies serveur.",
+      "Développement d'APIs REST, intégration de services cloud.",
+      "Gestion de projets techniques en équipe, méthodologies DevOps et déploiement continu.",
+    ],
   },
 ];
 

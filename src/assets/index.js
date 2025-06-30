@@ -34,6 +34,7 @@ import iut1Lyon from "./company/iut1Lyon.png";
 import iut1Grenoble from "./company/iut1Grenoble.png";
 import lrp from "./company/lrp.png";
 import master from "./company/master.png";
+import myDigitalSchool from "./company/myDigitalSchool.png";
 
 export {
   illustrationDev,
@@ -71,4 +72,5 @@ export {
   iut1Grenoble,
   master,
   lrp,
+  myDigitalSchool
 };

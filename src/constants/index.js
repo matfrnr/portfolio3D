@@ -29,6 +29,8 @@ import {
   lrp,
   myDigitalSchool,
   open,
+  vaisseau,
+  vaisseau1,
 } from "../assets";
 
 export const navLinks = [
@@ -48,19 +50,19 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Développeur front-end",
+    title: "Sites & Apps web",
     icon: web,
   },
   {
-    title: "Expérience utilisateur",
+    title: "Applications mobiles",
     icon: mobile,
   },
   {
-    title: "Ergonomie / Référencement",
+    title: "API & Back-end",
     icon: backend,
   },
   {
-    title: "Frameworks back et front",
+    title: "Design UI/UX & Animations",
     icon: creator,
   },
 ];
@@ -166,15 +168,25 @@ const experiences = [
   {
     title: "Concepteur développeur",
     type: "Alternance",
-    company_name: "Open",
+    company_name: "Open (Ministère de la transition écologique)",
     icon: open,
     iconBg: "#E6DEDD",
-    date: "Septembre 2025 - Août 2027",
+    date: "Août 2025 - Novembre 2025",
     points: [
-      "Développement et maintenance d'une sonde de supervision pour le ministère de la transition écologique.",
-      "Développement en NodeJS sous environnement Linux avec des scripts Shell, Python et Perl.",
-      "Mise en place et amélioration des méthodologies de développement au sein de l'équipe.",
+      "Maintenance et mise à niveau d'une sonde de supervision pour le client",
+      "Développement d'une application de planning pour la gestion des effectifs.",
       "Participation à la remontée d'alertes et au monitoring des systèmes critiques.",
+      "Migration des serveurs vers une infrastructure à Paris.",
+    ],
+  },
+    {
+    title: "Prochainement...",
+    type: "Alternance",
+    icon : vaisseau,
+    company_name: "Et si c'était vous ? 🚀",
+    iconBg: "#E6DEDD",
+    date: "Jusqu'en Août 2027",
+    points: [
     ],
   },
 ];
@@ -214,9 +226,9 @@ const parcours = [
     date: "2025-2027",
     points: [
       "Formation en développement web moderne, couvrant les technologies front-end et back-end.",
-      "Maîtrise des frameworks JavaScript avancés et des technologies serveur.",
-      "Développement d'APIs REST, intégration de services cloud.",
-      "Gestion de projets techniques en équipe, méthodologies DevOps et déploiement continu.",
+      "Maîtrise des frameworks avancés et des technologies serveur.",
+      "Développement d'APIs REST, déploiement continu et automatisation.",
+      "Gestion de projets techniques en équipe, méthodologies DevOps.",
     ],
   },
 ];

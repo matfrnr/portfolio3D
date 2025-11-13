@@ -47,7 +47,10 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
       >
-        Vous ne me connaissez pas encore, alors laissez-moi vous en dire un peu plus sur mon histoire. Depuis mon plus jeune âge, je suis passionné par le développement web et cette passion ne cesse de croître au fil du temps. Aujourd'hui, j'ai pour ambition de faire de cette passion mon métier. Je n'ai pas froid aux yeux et j'aime les défis. Le code est un outil formidable pour exprimer sa créativité, car il offre des possibilités infinies. Alors autant vous dire que ce n'est pas la motivation qu'il me manque👨‍💻
+        Vous ne me connaissez pas encore, alors laissez-moi me présenter et vous raconter mon histoire. Depuis tout jeune, je suis passionné par le développement, et cette passion n’a jamais cessé de grandir. Enfant, j’étais très curieux et je posais mille questions. Le jour de mes 12 ans, j’ai reçu mon premier ordinateur, un moment décisif qui a marqué le début de mon aventure dans la programmation. Très vite, j’ai commencé à apprendre en autodidacte, créant mes premiers sites web.
+        <br></br>
+        <br></br>
+        Avec le temps, j’ai élargi mes compétences bien au-delà du web. J’ai exploré différents langages, frameworks et environnements, ce qui m’a permis d’être polyvalent. Chaque projet a été une nouvelle opportunité d’apprendre et de me dépasser. J’adore les défis et je n’ai pas froid aux yeux. Autant dire que la motivation ne manque pas 👨‍💻
       </motion.p>
 
       <div className='mt-20 flex flex-wrap gap-10'>

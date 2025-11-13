@@ -45,7 +45,7 @@ const HeroMobile = () => {
                         </span>
                     </h1>
                     <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-                        Je suis un développeur front-end passionné{" "}
+                        Je suis un développeur full-stack passionné{" "}
                         <br className="sm:block hidden" />
                         qui conçois et développe des             <br className="sm:block hidden" />
                         applications web modernes.

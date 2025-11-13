@@ -45,7 +45,7 @@ const Navbar = () => {
           <img src={illustrationDev} alt='logo' className='w-12 h-12 object-contain' />
           <p className='text-white text-[18px] font-bold flex '>
             Mathéo &nbsp;
-            <span className='md:block hidden'> | Développeur web</span>
+            <span className='md:block hidden'> | Développeur </span>
           </p>
         </Link>
 

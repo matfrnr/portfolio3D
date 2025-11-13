@@ -16,12 +16,9 @@ const Terminal = () => {
         'cv': 'Télécharger mon CV',
         'portfolio': 'En savoir plus sur ce portfolio',
         'liens': 'Les liens utiles',
-        'date': 'Affiche la date et l\'heure actuelles',
         'whoami': 'Qui êtes-vous ?',
         'update': 'Date de la dernière mise à jour',
-        'amour': 'Un peu d\'amour ❤️',
         'jeu': 'Envie de se détendre ?',
-        '💣': 'Ne le faites pas.',
     };
 
     const jokes = [
@@ -61,9 +58,7 @@ const Terminal = () => {
         'liens': liensContent,
         'portfolio': `Ce portfolio a été réalisé en utilisant React et Tailwind. Il intègre le framework Three.js pour la partie 3D. Il est en constante évolution et mis à jour régulièrement.`,
         'whoami': `Ma future entreprise ? Mes futurs collaborateurs ? Ma future aventure ? À vous de le décider !`,
-        'update': `Dernière mise à jour : 22/03/2025.`,
-        'amour': `Ce portfolio a été confectionné et réalisé avec amour ❤️ Alors prenez soin de lui !`,
-        '💣': `La curiosité est un vilain défaut.`,
+        'update': `Dernière mise à jour : 15/11/2025.`,
         'cv': cvContent
     };
 
@@ -107,12 +102,6 @@ const Terminal = () => {
             setHistory([
                 { type: 'output', content: 'Terminal effacé.' }
             ]);
-            return;
-        }
-
-        if (mainCmd === 'date') {
-            const now = new Date();
-            addToHistory('output', now.toLocaleString());
             return;
         }
 

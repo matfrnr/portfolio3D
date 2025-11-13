@@ -2,20 +2,47 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="/portfolio3D/assets/illustrationDev-CVPyNg68.png" 
-    />
+    <link rel="icon" type="image/webp" href="/portfolio3D/assets/illustrationDev-B8p2Y2kD.webp" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mathéo | Développeur</title>
-    <script type="module" crossorigin src="/portfolio3D/assets/index-ZG0Gs1Fh.js"></script>
-    <link rel="stylesheet" crossorigin href="/portfolio3D/assets/index-CWkV11F2.css">
+
+    <!-- Preload des ressources critiques -->
+    <link
+      rel="preload"
+      href="/portfolio3D/fonts/poppins-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/portfolio3D/fonts/poppins-500.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/portfolio3D/fonts/poppins-600.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preload" href="./desktop_pc/scene.gltf" as="fetch" crossorigin />
+    <link rel="preload" href="./planet/scene.gltf" as="fetch" crossorigin />
+    <link rel="preload" href="./fusee.webp" as="image" />
+    <link rel="preload" as="image" href="/portfolio3D/assets/c-BgQBKP3B.webp" />
+    <script type="module" crossorigin src="/portfolio3D/assets/index-cea5lyH-.js"></script>
+    <link rel="modulepreload" crossorigin href="/portfolio3D/assets/three-CdawCC9b.js">
+    <link rel="modulepreload" crossorigin href="/portfolio3D/assets/framer-DYIDMW49.js">
+    <link rel="modulepreload" crossorigin href="/portfolio3D/assets/router-ztUL4isF.js">
+    <link rel="modulepreload" crossorigin href="/portfolio3D/assets/ui-CG389R4A.js">
+    <link rel="stylesheet" crossorigin href="/portfolio3D/assets/index-Cpdesc9X.css">
   </head>
   <body>
     <div id="root"></div>
     <div class="spaceship">
-      <img src="/portfolio3D/assets/fusee-U-guBZZX.png" alt="Vaisseau Spatial" />
+      <img src="./fusee.webp" alt="Vaisseau Spatial" />
     </div>
   </body>
 </html>

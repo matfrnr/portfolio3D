@@ -1,6 +1,7 @@
 import React, { Suspense, useEffect, useState, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
+import * as THREE from "three";
 
 import CanvasLoader from "../Loader";
 
@@ -15,7 +16,7 @@ const Earth = () => {
   const mobile = isMobile();
   // Utiliser un scale légèrement réduit sur mobile, mais pas trop
   const scale = mobile ? 2.2 : 2.5;
-  
+
   // Ne pas utiliser le paramètre "true" qui causait des problèmes
   const earth = useGLTF("./planet/scene.gltf");
 
@@ -40,7 +41,7 @@ const AutoRotate = () => {
 // Le contenu original du Canvas
 const EarthCanvasContent = () => {
   const mobile = isMobile();
-  
+
   // Réglages moins agressifs pour garantir l'affichage
   const dprValue = mobile ? [0.8, 1.5] : [1, 2];
 
@@ -111,10 +112,10 @@ const MobileEarthCanvas = () => {
   // Utilisez le même style que celui que vous aviez dans votre composant original
   // Ces propriétés CSS garantissent que le conteneur se comporte exactement comme avant
   return (
-    <div 
-      ref={ref} 
-      style={{ 
-        width: '100%', 
+    <div
+      ref={ref}
+      style={{
+        width: '100%',
         height: '100%',
         position: 'relative',
         display: 'flex',
@@ -130,7 +131,7 @@ const MobileEarthCanvas = () => {
 // Le composant principal qui choisit entre la version mobile et desktop
 const EarthCanvas = () => {
   const mobile = isMobile();
-  
+
   // Si mobile, utiliser la version avec chargement/déchargement conditionnel
   // Sinon, utiliser la version originale
   return mobile ? <MobileEarthCanvas /> : <EarthCanvasContent />;

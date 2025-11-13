@@ -6,14 +6,38 @@
     <link rel="stylesheet" href="styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mathéo | Développeur</title>
+
     <!-- Preload des ressources critiques -->
+    <link
+      rel="preload"
+      href="/fonts/poppins-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/poppins-500.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/poppins-600.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preload" href="./desktop_pc/scene.gltf" as="fetch" crossorigin />
+    <link rel="preload" href="./planet/scene.gltf" as="fetch" crossorigin />
+    <link rel="preload" href="./fusee.webp" as="image" />
     <link rel="preload" as="image" href="src/assets/c.webp" />
-    <link rel="preload" as="image" href="src/assets/herobg.webp" />
   </head>
   <body>
     <div id="root"></div>
     <div class="spaceship">
-      <img src="./public/fusee.webp" alt="Vaisseau Spatial" />
+      <img src="./fusee.webp" alt="Vaisseau Spatial" />
     </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

@@ -1,5 +1,19 @@
-const CACHE_NAME = "portfolio-v1";
-const urlsToCache = ["/", "/index.html", "/src/main.jsx", "/styles.css"];
+const CACHE_NAME = "portfolio-v3";
+const urlsToCache = [
+  "/",
+  "/index.html",
+  "/src/main.jsx",
+  "/styles.css",
+  "/fonts/poppins-300.woff2",
+  "/fonts/poppins-400.woff2",
+  "/fonts/poppins-500.woff2",
+  "/fonts/poppins-600.woff2",
+  "/fonts/poppins-700.woff2",
+  "/desktop_pc/scene.gltf",
+  "/planet/scene.gltf",
+  "/fusee.webp",
+  "/src/assets/c.webp",
+];
 
 // Installation du Service Worker
 self.addEventListener("install", (event) => {

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import iconMail from '../assets/liens/iconMail.png';
-import iconLinkedin from '../assets/liens/iconLinkedin.png';
-import iconGithub from '../assets/liens/iconGithub.png';
+import iconMail from '../assets/liens/iconMail.webp';
+import iconLinkedin from '../assets/liens/iconLinkedin.webp';
+import iconGithub from '../assets/liens/iconGithub.webp';
 
 const BottomRightBanner = () => {
     const [isOpen, setIsOpen] = useState(false);

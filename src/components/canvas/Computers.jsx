@@ -5,27 +5,44 @@ import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import CanvasLoader from "../Loader";
 
 const Computers = ({ isMobile }) => {
-  const computer = useGLTF("./desktop_pc/scene.gltf");
+  const computer = useGLTF("./desktop_pc/scene.gltf", true);
+
+  // Optimiser les matériaux du modèle 3D
+  useEffect(() => {
+    if (computer.scene) {
+      computer.scene.traverse((child) => {
+        if (child.isMesh) {
+          // Réduire la qualité sur mobile
+          child.castShadow = !isMobile;
+          child.receiveShadow = !isMobile;
+          // Limiter les géométries sur mobile
+          if (isMobile && child.geometry) {
+            child.geometry.computeVertexNormals();
+          }
+        }
+      });
+    }
+  }, [isMobile, computer]);
 
   return (
     <mesh>
-      <hemisphereLight intensity={1.8} groundColor='white' />
+      <hemisphereLight intensity={isMobile ? 1.2 : 1.8} groundColor='white' />
       <spotLight
         position={[-20, 50, 10]}
         angle={0.12}
         penumbra={1}
-        intensity={1}
-        castShadow
-        shadow-mapSize={1024}
+        intensity={isMobile ? 0.5 : 1}
+        castShadow={!isMobile}
+        shadow-mapSize={isMobile ? 512 : 1024}
       />
-      <pointLight intensity={1} />
+      <pointLight intensity={isMobile ? 0.5 : 1} />
       <primitive
         object={computer.scene}
         scale={isMobile ? 0.7 : 0.75}
         position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
         rotation={[-0.01, -0.2, -0.1]}
-        castShadow
-        receiveShadow
+        castShadow={!isMobile}
+        receiveShadow={!isMobile}
       />
     </mesh>
   );

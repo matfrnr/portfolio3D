@@ -1,41 +1,41 @@
-import illustrationDev from "./illustrationDev.png";
-import logo2 from "./logo2.png";
-import backend from "./backend.png";
-import creator from "./creator.png";
-import mobile from "./mobile.png";
-import web from "./web.png";
+import illustrationDev from "./illustrationDev.webp";
+import logo2 from "./logo2.webp";
+import backend from "./backend.webp";
+import creator from "./creator.webp";
+import mobile from "./mobile.webp";
+import web from "./web.webp";
 import menu from "./menu.svg";
 import close from "./close.svg";
-import github from "./github.png";
-import vaisseau from "./vaisseau.png";
-import vaisseau1 from "./vaisseau1.png";
-import css from "./tech/css.png";
-import resto1 from "./projets/resto1.png";
-import morpion from "./projets/morpion.jpg";
-import delive from "./projets/delive.jpg";
+import github from "./github.webp";
+import vaisseau from "./vaisseau.webp";
+import vaisseau1 from "./vaisseau1.webp";
+import css from "./tech/css.webp";
+import resto1 from "./projets/resto1.webp";
+import morpion from "./projets/morpion.webp";
+import delive from "./projets/delive.webp";
 import escape from "./projets/escape.webp";
-import recipe from "./projets/recipe.jpeg";
-import planete3D from "./projets/planete3D.png";
-import git from "./tech/git.png";
-import html from "./tech/html.png";
-import javascript from "./tech/javascript.png";
+import recipe from "./projets/recipe.webp";
+import planete3D from "./projets/planete3D.webp";
+import git from "./tech/git.webp";
+import html from "./tech/html.webp";
+import javascript from "./tech/javascript.webp";
 import sql from "./tech/sql.svg";
-import c from "./tech/c.png";
-import php from "./tech/php.png";
-import java from "./tech/java.png";
-import vue from "./tech/vue.png";
-import angular from "./tech/angular.png";
-import reactjs from "./tech/reactjs.png";
-import typescript from "./tech/typescript.png";
+import c from "./tech/c.webp";
+import php from "./tech/php.webp";
+import java from "./tech/java.webp";
+import vue from "./tech/vue.webp";
+import angular from "./tech/angular.webp";
+import reactjs from "./tech/reactjs.webp";
+import typescript from "./tech/typescript.webp";
 import threejs from "./tech/threejs.svg";
 
-import alpilink from "./company/alpilink.png";
-import iut1Lyon from "./company/iut1Lyon.png";
-import iut1Grenoble from "./company/iut1Grenoble.png";
-import lrp from "./company/lrp.png";
-import master from "./company/master.png";
-import myDigitalSchool from "./company/myDigitalSchool.png";
-import open from "./company/open.jpg";
+import alpilink from "./company/alpilink.webp";
+import iut1Lyon from "./company/iut1Lyon.webp";
+import iut1Grenoble from "./company/iut1Grenoble.webp";
+import lrp from "./company/lrp.webp";
+import master from "./company/master.webp";
+import myDigitalSchool from "./company/myDigitalSchool.webp";
+import open from "./company/open.webp";
 
 export {
   illustrationDev,
@@ -74,5 +74,5 @@ export {
   master,
   lrp,
   myDigitalSchool,
-  open
+  open,
 };

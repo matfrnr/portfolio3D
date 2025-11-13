@@ -5,6 +5,7 @@ import {
 } from "react-vertical-timeline-component";
 import { motion } from "framer-motion";
 import { vaisseau } from "../assets";
+import LazyImage from "./LazyImage";
 
 import "react-vertical-timeline-component/style.min.css";
 
@@ -25,7 +26,7 @@ const ParcoursCard = ({ experience }) => {
             iconStyle={{ background: experience.iconBg }}
             icon={
                 <div className='flex justify-center items-center w-full h-full'>
-                    <img
+                    <LazyImage
                         src={experience.icon}
                         alt={experience.company_name}
                         className='w-[100%] h-[100%] object-contain'

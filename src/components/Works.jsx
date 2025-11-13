@@ -7,6 +7,7 @@ import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
+import LazyImage from "./LazyImage";
 
 const ProjectCard = ({
   index,
@@ -37,7 +38,7 @@ const ProjectCard = ({
     return (
       <div className='bg-tertiary p-4 rounded-lg w-full mb-6'>
         <div className='relative w-full'>
-          <img
+          <LazyImage
             src={image}
             alt={name}
             className='w-full h-48 object-cover rounded-lg'
@@ -87,7 +88,7 @@ const ProjectCard = ({
         className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full h-[470px] flex flex-col'
       >
         <div className='relative w-full h-[230px]'>
-          <img
+          <LazyImage
             src={image}
             alt='project_image'
             className='w-full h-full object-cover rounded-2xl'

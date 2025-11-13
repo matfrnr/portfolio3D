@@ -5,6 +5,11 @@
     <link rel="icon" type="image/webp" href="src/assets/illustrationDev.webp" />
     <link rel="stylesheet" href="styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio 3D de Mathéo Fournier - Développeur Full Stack"
+    />
+    <meta name="theme-color" content="#050816" />
     <title>Mathéo | Développeur</title>
 
     <!-- Preload des ressources critiques -->
@@ -29,14 +34,18 @@
       type="font/woff2"
       crossorigin
     />
+
+    <!-- Preload avec fetchpriority pour les modèles critiques -->
     <link rel="preload" href="./desktop_pc/scene.gltf" as="fetch" crossorigin />
     <link rel="preload" href="./planet/scene.gltf" as="fetch" crossorigin />
-    <link rel="preload" href="./fusee.webp" as="image" />
+
+    <!-- Preload des images au-dessus de la ligne de flottaison -->
     <link rel="preload" as="image" href="src/assets/c.webp" />
+    <link rel="preload" as="image" href="./fusee.webp" />
   </head>
   <body>
     <div id="root"></div>
-    <div class="spaceship">
+    <div class="spaceship" style="display: none">
       <img src="./fusee.webp" alt="Vaisseau Spatial" />
     </div>
     <script type="module" src="/src/main.jsx"></script>

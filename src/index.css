@@ -11,6 +11,83 @@
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
   color-scheme: dark;
+  cursor: none !important;
+}
+
+body {
+  cursor: none;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: #915eff;
+  color: white;
+}
+
+::-moz-selection {
+  background-color: #915eff;
+  color: white;
+}
+
+img {
+  user-select: none;
+}
+
+body.loaded {
+  cursor: none;
+}
+
+.spaceship {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  transition: transform 0.1s;
+  pointer-events: none;
+  display: none !important; /* Force le masquage par défaut */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+body.loaded .spaceship {
+  display: block !important; /* Force l'affichage après chargement */
+}
+
+.smoke {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  animation: fadeOut 1s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .spaceship {
+    display: none !important;
+  }
+  .spaceship img {
+    display: none !important;
+  }
+  body.loaded .spaceship {
+    display: none !important;
+  }
+  .smoke {
+    display: none !important;
+  }
 }
 
 .hash-span {

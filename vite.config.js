@@ -11,7 +11,6 @@ export default defineConfig({
           three: ["three", "@react-three/fiber", "@react-three/drei"],
           framer: ["framer-motion"],
           ui: ["react-parallax-tilt", "react-vertical-timeline-component"],
-          router: ["react-router-dom"],
         },
       },
     },
@@ -19,11 +18,17 @@ export default defineConfig({
     terserOptions: {
       compress: {
         drop_console: true,
+        passes: 2,
+      },
+      format: {
+        comments: false,
       },
     },
     cssCodeSplit: true,
     sourcemap: false,
     chunkSizeWarningLimit: 500,
+    assetsInlineLimit: 4096,
+    reportCompressedSize: true,
   },
   server: {
     preTransformRequests: ["/src/components/canvas/*", "/src/assets/*"],

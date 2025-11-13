@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import LazyImage from './LazyImage';
 import iconMail from '../assets/liens/iconMail.webp';
 import iconLinkedin from '../assets/liens/iconLinkedin.webp';
 import iconGithub from '../assets/liens/iconGithub.webp';
@@ -28,7 +29,7 @@ const BottomRightBanner = () => {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                         >
-                            <a href='https://github.com/matfrnr' target='blank'> <img src={iconGithub} alt="Icon 3" style={{ width: '2.2rem', borderRadius: '50%' }} /></a>
+                            <a href='https://github.com/matfrnr' target='blank'> <LazyImage src={iconGithub} alt="Icon 3" style={{ width: '2.2rem', borderRadius: '50%' }} /></a>
                         </motion.button>
 
                         <motion.button
@@ -36,7 +37,7 @@ const BottomRightBanner = () => {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                         >
-                            <a href='https://www.linkedin.com/in/matheofournier/' target='blank'> <img src={iconLinkedin} alt="Icon 1" style={{ width: '2.2rem', borderRadius: '50%' }} /></a>
+                            <a href='https://www.linkedin.com/in/matheofournier/' target='blank'> <LazyImage src={iconLinkedin} alt="Icon 1" style={{ width: '2.2rem', borderRadius: '50%' }} /></a>
                         </motion.button>
 
                         <motion.button
@@ -44,7 +45,7 @@ const BottomRightBanner = () => {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                         >
-                            <a href='mailto:fourniermatheo9@gmail.com' target='blank'> <img src={iconMail} alt="Icon 2" style={{ width: '2.2rem', borderRadius: '50%' }} /></a>
+                            <a href='mailto:fourniermatheo9@gmail.com' target='blank'> <LazyImage src={iconMail} alt="Icon 2" style={{ width: '2.2rem', borderRadius: '50%' }} /></a>
                         </motion.button>
                     </motion.div>
                 )}

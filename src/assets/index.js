@@ -1,5 +1,4 @@
 import illustrationDev from "./illustrationDev.webp";
-import logo2 from "./logo2.webp";
 import backend from "./backend.webp";
 import creator from "./creator.webp";
 import mobile from "./mobile.webp";
@@ -39,7 +38,6 @@ import open from "./company/open.webp";
 
 export {
   illustrationDev,
-  logo2,
   vaisseau,
   vaisseau1,
   backend,

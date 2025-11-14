@@ -1,9 +1,10 @@
-import React, { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
-import * as THREE from "three";
-
 import CanvasLoader from "../Loader";
+
+// Configurer le décodeur Draco
+useGLTF.setDecoderPath('/draco/');
 
 const Computers = ({ isMobile }) => {
   const computer = useGLTF("./desktop_pc/scene.gltf", true);

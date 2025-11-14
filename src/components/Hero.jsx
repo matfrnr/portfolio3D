@@ -35,26 +35,39 @@ const Hero = () => {
   const size = useWindowSize();
 
   useEffect(() => {
-   
+    let animationFrameId;
+    let elapsed = 0;
+    const tickRate = isDeleting ? 100 : 200;
 
-    const timeout = setTimeout(() => {
-      if (!isDeleting) {
-        setText(fullText.substring(0, text.length + 1));
-        if (text.length === fullText.length - 1) {
-          // Attendre un peu avant de commencer à effacer
-          setTimeout(() => setIsDeleting(true), 1000);
+    const animate = () => {
+      elapsed += 16;
+      if (elapsed >= tickRate) {
+        if (!isDeleting) {
+          setText(prev => {
+            const newText = fullText.substring(0, prev.length + 1);
+            if (newText.length === fullText.length) {
+              setTimeout(() => setIsDeleting(true), 1000);
+            }
+            return newText;
+          });
+        } else {
+          setText(prev => {
+            const newText = fullText.substring(0, prev.length - 1);
+            if (newText.length === 0) {
+              setIsDeleting(false);
+              setLoopNum(prev => prev + 1);
+            }
+            return newText;
+          });
         }
-      } else {
-        setText(fullText.substring(0, text.length - 1));
-        if (text.length === 1) {
-          setIsDeleting(false);
-          setLoopNum(loopNum + 1);
-        }
+        elapsed = 0;
       }
-    }, isDeleting ? 100 : 200); // Vitesse d'écriture un peu plus lente que l'effacement
+      animationFrameId = requestAnimationFrame(animate);
+    };
 
-    return () => clearTimeout(timeout);
-  }, [text, isDeleting, loopNum, size.width]);
+    animationFrameId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [isDeleting, loopNum, size.width, fullText]);
 
   const handleScroll = (e) => {
     e.preventDefault();

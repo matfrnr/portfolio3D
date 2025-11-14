@@ -10,7 +10,13 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    // Throttle pour les listeners de scroll - limite à 60fps
+    let lastScrollTime = 0;
     const handleScroll = () => {
+      const now = Date.now();
+      if (now - lastScrollTime < 16) return; // ~60fps
+      lastScrollTime = now;
+
       const scrollTop = window.scrollY;
       if (scrollTop > 100) {
         setScrolled(true);
@@ -19,7 +25,7 @@ const Navbar = () => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);

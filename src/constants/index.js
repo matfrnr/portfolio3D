@@ -7,9 +7,15 @@ import {
   typescript,
   html,
   reactjs,
+  tailwind,
+  nest,
+  laravel,
+  reactNative,
+  express,
+  nodejs,
   css,
   resto1,
-  morpion,
+  azul,
   delive,
   escape,
   recipe,
@@ -85,37 +91,41 @@ const technologies = [
     icon: typescript,
   },
   {
-    name: "Angular",
-    icon: angular,
-  },
-  {
-    name: "Vue.JS",
-    icon: vue,
-  },
-  {
-    name: "React",
-    icon: reactjs,
+    name: "PHP",
+    icon: php,
   },
   {
     name: "SQL",
     icon: sql,
   },
   {
-    name: "Three JS",
-    icon: threejs,
-  },
-  {
-    name: "git",
-    icon: git,
+    name: "Java",
+    icon: java,
   },
 
   {
-    name: "PHP",
-    icon: php,
+    name: "Tailwind",
+    icon: tailwind,
   },
   {
-    name: "Java",
-    icon: java,
+    name: "Laravel",
+    icon: laravel,
+  },
+  {
+    name: "Express.JS",
+    icon: express,
+  },
+  {
+    name: "React",
+    icon: reactjs,
+  },
+  {
+    name: "Angular",
+    icon: angular,
+  },
+  {
+    name: "Vue.JS",
+    icon: vue,
   },
 ];
 
@@ -179,15 +189,14 @@ const experiences = [
       "Migration des serveurs vers une infrastructure à Paris.",
     ],
   },
-    {
+  {
     title: "Prochainement...",
     type: "Alternance",
-    icon : vaisseau,
+    icon: vaisseau,
     company_name: "Et si c'était vous ? 🚀",
     iconBg: "#E6DEDD",
     date: "Jusqu'en Août 2027",
-    points: [
-    ],
+    points: [],
   },
 ];
 
@@ -271,11 +280,23 @@ const projects = [
         color: "blue-text-gradient",
       },
       {
-        name: "mariadb",
+        name: "express.js",
+        color: "orange-text-gradient",
+      },
+      {
+        name: "javascript",
+        color: "yellow-text-gradient",
+      },
+      {
+        name: "mysql",
         color: "green-text-gradient",
       },
       {
-        name: "websockets",
+        name: "socket.io",
+        color: "yellow-text-gradient",
+      },
+      {
+        name: "tailwind",
         color: "pink-text-gradient",
       },
     ],
@@ -288,15 +309,23 @@ const projects = [
       "Une application de livraison de repas pour les étudiants ! Avec la possibilité de consulter les plats, de les ajouter en ❤️ et de suivre la commande.",
     tags: [
       {
-        name: "reactNative",
+        name: "react native",
         color: "blue-text-gradient",
       },
       {
         name: "typescript",
+        color: "cyan-text-gradient",
+      },
+      {
+        name: "expo",
         color: "green-text-gradient",
       },
       {
-        name: "api",
+        name: "async storage",
+        color: "yellow-text-gradient",
+      },
+      {
+        name: "jest",
         color: "pink-text-gradient",
       },
     ],
@@ -309,16 +338,28 @@ const projects = [
       "Une application de recettes de cuisine communautaire et personnalisable ! Créez vos propres recettes, générez automatiquement une liste de courses et demandez à une IA des recettes uniques.",
     tags: [
       {
-        name: "java",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "api",
+        name: "android",
         color: "green-text-gradient",
       },
       {
-        name: "gradle",
+        name: "java",
+        color: "orange-text-gradient",
+      },
+      {
+        name: "sqlite",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "retrofit",
         color: "pink-text-gradient",
+      },
+      {
+        name: "gradle",
+        color: "purple-text-gradient",
+      },
+      {
+        name: "api",
+        color: "cyan-text-gradient",
       },
     ],
     image: recipe,
@@ -330,12 +371,20 @@ const projects = [
       "Découvrez une animation 3D du système solaire, naviguez entre les planètes, apprenez des informations sur chacune d'elles. Une comparaison de taille est également disponible.",
     tags: [
       {
-        name: "js",
+        name: "javascript",
+        color: "yellow-text-gradient",
+      },
+      {
+        name: "babylon.js",
         color: "blue-text-gradient",
       },
       {
-        name: "Babylon.js",
-        color: "green-text-gradient",
+        name: "vite",
+        color: "cyan-text-gradient",
+      },
+      {
+        name: "html",
+        color: "orange-text-gradient",
       },
       {
         name: "css",
@@ -344,6 +393,39 @@ const projects = [
     ],
     image: planete3D,
     source_code_link: "https://github.com/matfrnr/System_solar_3D",
+  },
+  {
+    name: "Azul Game",
+    description:
+      "Une version numérique du célèbre jeu de société Azul. Jouez contre un ami en local, avec une interface intuitive et des graphismes colorés. Redécouvrez le plaisir d'aligner des tuiles !",
+    tags: [
+      {
+        name: "typescript",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "react",
+        color: "cyan-text-gradient",
+      },
+      {
+        name: "javascript",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "vite",
+        color: "purple-text-gradient",
+      },
+      {
+        name: "html",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "css",
+        color: "green-text-gradient",
+      },
+    ],
+    image: azul,
+    source_code_link: "https://github.com/matfrnr/azul",
   },
   {
     name: "The Resto",
@@ -355,40 +437,26 @@ const projects = [
         color: "blue-text-gradient",
       },
       {
-        name: "scss",
+        name: "css",
         color: "green-text-gradient",
       },
       {
-        name: "responsive",
+        name: "scss",
         color: "pink-text-gradient",
+      },
+      {
+        name: "responsive",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "site vitrine",
+        color: "cyan-text-gradient",
       },
     ],
     image: resto1,
     source_code_link: "https://github.com/matfrnr/TheResto",
   },
-  {
-    name: "Mini Jeux",
-    description:
-      "Envie de vous amuser ? Essayez ce site regroupant 6 mini-jeux uniques et variés. De quoi passer un bon moment seul ou entre amis ! ",
-    tags: [
-      {
-        name: "html",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "css",
-        color: "green-text-gradient",
-      },
-      {
-        name: "js",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: morpion,
-    source_code_link: "https://github.com/matfrnr/MiniJeu",
-  },
 ];
-
 export {
   services,
   technologies,

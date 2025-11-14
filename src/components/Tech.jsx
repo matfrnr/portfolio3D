@@ -7,24 +7,24 @@ const Tech = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
   const [visibleTechnologies, setVisibleTechnologies] = useState([]);
-  
+
   // Détecter si on est sur mobile
   useEffect(() => {
     const checkIsMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     // Vérification initiale
     checkIsMobile();
-    
+
     // Mettre à jour lors du redimensionnement
     window.addEventListener("resize", checkIsMobile);
-    
+
     return () => {
       window.removeEventListener("resize", checkIsMobile);
     };
   }, []);
-  
+
   // Configurer les technologies visibles en fonction du device
   useEffect(() => {
     if (isMobile) {
@@ -32,7 +32,7 @@ const Tech = () => {
       const halfSize = 6;
       const firstHalf = technologies.slice(0, halfSize);
       const secondHalf = technologies.slice(halfSize);
-      
+
       // Afficher le premier ou le deuxième groupe en fonction de currentPage
       setVisibleTechnologies(currentPage === 0 ? firstHalf : secondHalf);
     } else {
@@ -40,22 +40,27 @@ const Tech = () => {
       setVisibleTechnologies(technologies);
     }
   }, [isMobile, currentPage]);
-  
+
   const handleToggleTechnologies = () => {
     // Basculer entre 0 et 1
     setCurrentPage(currentPage === 0 ? 1 : 0);
   };
-  
+
   return (
     <div>
       <div className="flex flex-row flex-wrap justify-center gap-10">
         {visibleTechnologies.map((technology) => (
-          <div className="w-28 h-28" key={technology.name}>
-            <BallCanvas icon={technology.icon} />
+          <div key={technology.name} className="flex flex-col items-center">
+            <div className="w-28 h-28">
+              <BallCanvas icon={technology.icon} />
+            </div>
+            <p className="mt-2 text-center text-white text-sm font-medium">
+              {technology.name}
+            </p>
           </div>
         ))}
       </div>
-      
+
       {/* Afficher le bouton uniquement sur mobile */}
       {isMobile && (
         <div className="mt-8 flex justify-center">

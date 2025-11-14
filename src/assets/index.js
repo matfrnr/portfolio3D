@@ -10,7 +10,7 @@ import vaisseau from "./vaisseau.webp";
 import vaisseau1 from "./vaisseau1.webp";
 import css from "./tech/css.webp";
 import resto1 from "./projets/resto1.webp";
-import morpion from "./projets/morpion.webp";
+import azul from "./projets/azul.webp";
 import delive from "./projets/delive.webp";
 import escape from "./projets/escape.webp";
 import recipe from "./projets/recipe.webp";
@@ -25,6 +25,12 @@ import java from "./tech/java.webp";
 import vue from "./tech/vue.webp";
 import angular from "./tech/angular.webp";
 import reactjs from "./tech/reactjs.webp";
+import tailwind from "./tech/tailwind.webp";
+import nest from "./tech/nest.webp";
+import laravel from "./tech/laravel.webp";
+import nodejs from "./tech/nodejs.webp";
+import express from "./tech/expressjs.webp";
+import reactNative from "./tech/reactnative.webp";
 import typescript from "./tech/typescript.webp";
 import threejs from "./tech/threejs.svg";
 
@@ -49,7 +55,7 @@ export {
   close,
   css,
   resto1,
-  morpion,
+  azul,
   delive,
   escape,
   recipe,
@@ -64,6 +70,12 @@ export {
   vue,
   angular,
   reactjs,
+  tailwind,
+  nest,
+  laravel,
+  express,
+  reactNative,
+  nodejs,
   typescript,
   threejs,
   alpilink,

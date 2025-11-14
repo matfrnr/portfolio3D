@@ -2,8 +2,14 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/webp" href="/portfolio3D/assets/illustrationDev-B8p2Y2kD.webp" />
+    <link rel="icon" type="image/webp" href="/portfolio3D/assets/illustrationDev-B8p2Y2kD.webp" />
+    <link rel="stylesheet" href="styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio 3D de Mathéo Fournier - Développeur Full Stack"
+    />
+    <meta name="theme-color" content="#050816" />
     <title>Mathéo | Développeur</title>
 
     <!-- Preload des ressources critiques -->
@@ -28,20 +34,23 @@
       type="font/woff2"
       crossorigin
     />
+
+    <!-- Preload avec fetchpriority pour les modèles critiques -->
     <link rel="preload" href="./desktop_pc/scene.gltf" as="fetch" crossorigin />
     <link rel="preload" href="./planet/scene.gltf" as="fetch" crossorigin />
-    <link rel="preload" href="./fusee.webp" as="image" />
+
+    <!-- Preload des images au-dessus de la ligne de flottaison -->
     <link rel="preload" as="image" href="/portfolio3D/assets/c-BgQBKP3B.webp" />
-    <script type="module" crossorigin src="/portfolio3D/assets/index-cea5lyH-.js"></script>
-    <link rel="modulepreload" crossorigin href="/portfolio3D/assets/three-CdawCC9b.js">
-    <link rel="modulepreload" crossorigin href="/portfolio3D/assets/framer-DYIDMW49.js">
-    <link rel="modulepreload" crossorigin href="/portfolio3D/assets/router-ztUL4isF.js">
-    <link rel="modulepreload" crossorigin href="/portfolio3D/assets/ui-CG389R4A.js">
-    <link rel="stylesheet" crossorigin href="/portfolio3D/assets/index-Cpdesc9X.css">
+    <link rel="preload" as="image" href="./fusee.webp" />
+    <script type="module" crossorigin src="/portfolio3D/assets/index-DKm0slum.js"></script>
+    <link rel="modulepreload" crossorigin href="/portfolio3D/assets/three-CBS-YTMd.js">
+    <link rel="modulepreload" crossorigin href="/portfolio3D/assets/framer-C3gKhviP.js">
+    <link rel="modulepreload" crossorigin href="/portfolio3D/assets/ui-CgZ4zbXY.js">
+    <link rel="stylesheet" crossorigin href="/portfolio3D/assets/index-DmEURW7v.css">
   </head>
   <body>
     <div id="root"></div>
-    <div class="spaceship">
+    <div class="spaceship" style="display: none">
       <img src="./fusee.webp" alt="Vaisseau Spatial" />
     </div>
   </body>

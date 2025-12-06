@@ -1,7 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import compression from "vite-plugin-compression";
-import imagemin from "vite-plugin-imagemin";
 
 export default defineConfig({
   base: "/portfolio3D/",
@@ -22,34 +21,6 @@ export default defineConfig({
       algorithm: "brotli",
       ext: ".br",
       deleteOriginFile: false,
-    }),
-    imagemin({
-      gifsicle: {
-        optimizationLevel: 7,
-        interlaced: false,
-      },
-      optipng: {
-        optimizationLevel: 7,
-      },
-      mozjpeg: {
-        quality: 90,
-        progressive: true,
-      },
-      webp: {
-        quality: 88, // Haute qualité (88-90 est recommandé)
-        alphaQuality: 88,
-      },
-      svgo: {
-        plugins: [
-          {
-            name: "removeViewBox",
-          },
-          {
-            name: "removeEmptyAttrs",
-            active: false,
-          },
-        ],
-      },
     }),
   ],
   build: {

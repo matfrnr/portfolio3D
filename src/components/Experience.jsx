@@ -26,6 +26,8 @@ const ExperienceCard = ({ experience }) => {
           <span>{experience.date}</span>
           <br />
           <span className='text-secondary text-[14px]'>{experience.type}</span>
+          <br />
+          <span className='text-secondary text-[12px]'>{experience.lieu}</span>
         </div>
       }
       iconStyle={{ background: experience.iconBg }}

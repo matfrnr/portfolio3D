@@ -31,6 +31,7 @@ import typescript from "./tech/typescript.webp";
 import alpilink from "./company/alpilink.webp";
 import iut1Lyon from "./company/iut1Lyon.webp";
 import iut1Grenoble from "./company/iut1Grenoble.webp";
+import logo_domaine from "./company/Logo_domaine.png";
 import lrp from "./company/lrp.webp";
 import myDigitalSchool from "./company/myDigitalSchool.webp";
 import open from "./company/open.webp";
@@ -68,6 +69,7 @@ export {
   alpilink,
   iut1Lyon,
   iut1Grenoble,
+  logo_domaine,
   lrp,
   myDigitalSchool,
   open,

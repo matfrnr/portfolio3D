@@ -58,7 +58,7 @@ const Terminal = () => {
         'liens': liensContent,
         'portfolio': `Ce portfolio a été réalisé en utilisant React et Tailwind. Il intègre le framework Three.js pour la partie 3D. Il est en constante évolution et mis à jour régulièrement.`,
         'whoami': `Ma future entreprise ? Mes futurs collaborateurs ? Ma future aventure ? À vous de le décider !`,
-        'update': `Dernière mise à jour : 15/11/2025.`,
+        'update': `Dernière mise à jour : 10/03/2026.`,
         'cv': cvContent
     };
 

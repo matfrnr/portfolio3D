@@ -23,6 +23,7 @@ import {
   vue,
   angular,
   alpilink,
+  aesio,
   iut1Grenoble,
   logo_domaine,
   iut1Lyon,
@@ -46,10 +47,10 @@ export const navLinks = [
     id: "project",
     title: "Projets",
   },
-  {
-    id: "cv",
-    title: "CV",
-  },
+  // {
+  //   id: "cv",
+  //   title: "CV",
+  // },
 ];
 
 const services = [
@@ -207,13 +208,19 @@ const experiences = [
     ],
   },
   {
-    title: "Prochainement...",
+    title: "Ingénieur développeur",
     type: "Alternance",
-    icon: vaisseau,
-    company_name: "Et si c'était vous ? 🚀",
+    icon: aesio,
+    company_name: "Aésio Mutuelle",
     iconBg: "#E6DEDD",
-    date: "Jusqu'en Août 2027",
-    points: [],
+    date: "Août 2026 - Août 2027",
+    points: [
+      "Développement de nouvelles fonctionnalités en Java et Angular.",
+      "Conception et développement d'API REST sécurisées en Java.",
+      "Maintenance et évolution des applications.",
+      "Mise en œuvre de solutions techniques robustes et évolutives.",
+      "Rédaction de documentation technique.",
+    ],
   },
 ];
 

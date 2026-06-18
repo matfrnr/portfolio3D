@@ -13,7 +13,7 @@ const Terminal = () => {
         'help': 'Affiche la liste des commandes disponibles',
         'clear': 'Efface le terminal',
         'contact': 'Me contacter',
-        'cv': 'Télécharger mon CV',
+        // 'cv': 'Télécharger mon CV',
         'portfolio': 'En savoir plus sur ce portfolio',
         'liens': 'Les liens utiles',
         'whoami': 'Qui êtes-vous ?',
@@ -47,19 +47,19 @@ const Terminal = () => {
         </div>
     );
 
-    const cvContent = (
-        <div>
-            <div className='mb-2'>Envie d'en apprendre plus sur moi ? <a href="/portfolio3D/cv.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-300">Télécharger mon cv</a></div>
-        </div>
-    );
+    // const cvContent = (
+    //     <div>
+    //         <div className='mb-2'>Envie d'en apprendre plus sur moi ? <a href="/portfolio3D/cv.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-300">Télécharger mon cv</a></div>
+    //     </div>
+    // );
 
     const commandContents = {
         'contact': contactContent,
         'liens': liensContent,
         'portfolio': `Ce portfolio a été réalisé en utilisant React et Tailwind. Il intègre le framework Three.js pour la partie 3D. Il est en constante évolution et mis à jour régulièrement.`,
         'whoami': `Ma future entreprise ? Mes futurs collaborateurs ? Ma future aventure ? À vous de le décider !`,
-        'update': `Dernière mise à jour : 10/03/2026.`,
-        'cv': cvContent
+        'update': `Dernière mise à jour : 18/06/2026.`,
+        // 'cv': cvContent
     };
 
     useEffect(() => {

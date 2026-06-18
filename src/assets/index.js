@@ -29,6 +29,7 @@ import express from "./tech/expressjs.webp";
 import typescript from "./tech/typescript.webp";
 
 import alpilink from "./company/alpilink.webp";
+import aesio from "./company/aesio.webp";
 import iut1Lyon from "./company/iut1Lyon.webp";
 import iut1Grenoble from "./company/iut1Grenoble.webp";
 import logo_domaine from "./company/Logo_domaine.png";
@@ -67,6 +68,7 @@ export {
   express,
   typescript,
   alpilink,
+  aesio,
   iut1Lyon,
   iut1Grenoble,
   logo_domaine,

@@ -1,21 +1,19 @@
-const CACHE_NAME = "portfolio-v3";
+const CACHE_NAME = "portfolio-v4";
 const ASSETS_CACHE = "portfolio-assets-v3";
 const API_CACHE = "portfolio-api-v3";
 
 const urlsToCache = [
-  "/",
-  "/index.html",
-  "/src/main.jsx",
-  "/fonts/poppins-300.woff2",
-  "/fonts/poppins-400.woff2",
-  "/fonts/poppins-500.woff2",
-  "/fonts/poppins-600.woff2",
-  "/fonts/poppins-700.woff2",
-  "/desktop_pc/scene.gltf",
-  "/planet/scene.gltf",
-  "/fusee.webp",
-  "/src/assets/c.webp",
-];
+  "./",
+  "index.html",
+  "fonts/poppins-300.woff2",
+  "fonts/poppins-400.woff2",
+  "fonts/poppins-500.woff2",
+  "fonts/poppins-600.woff2",
+  "fonts/poppins-700.woff2",
+  "desktop_pc/scene.gltf",
+  "planet/scene.gltf",
+  "fusee.webp",
+].map((asset) => new URL(asset, self.registration.scope).href);
 
 // Installation du Service Worker
 self.addEventListener("install", (event) => {
